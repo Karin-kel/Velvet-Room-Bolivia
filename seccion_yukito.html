@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sección Yukito Tsukishiro</title>
+    <link rel="stylesheet" href="./css/seccion_figuras.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./Imagens/Favicon/favicon.png">
+</head>
+<body>
+    
+     <!-- MENÚ -->
+    <header>
+      <div class="nav-container">
+        <!-- LOGO -->
+        <img src="./Imagens/Menu/logo.png" alt="Logo" class="logo" />
+  
+        <!-- MENÚ PRINCIPAL (solo visible en escritorio) -->
+        <nav class="main-menu">
+          <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./productos.html">Productos</a></li>
+            <li><a href="./nosotros.html">Nosotros</a></li>
+            <li><a href="./eventos.html">Eventos</a></li>
+            <li><a href="./pedidos.html">Pedidos</a></li>
+          </ul>
+        </nav>
+  
+        <!-- ÍCONOS REDES SOCIALES (solo visible en escritorio) -->
+        <div class="social-icons">
+          <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+          <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+          <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+        </div>
+  
+        <!-- MENÚ HAMBURGUESA (solo visible en móvil) -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+  
+    <!-- MENÚ DESPLEGABLE (MÓVIL) -->
+    <div class="dropdown-menu" id="dropdownMenu">
+      <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./productos.html">Productos</a></li>
+        <li><a href="./nosotros.html">Nosotros</a></li>
+        <li><a href="./eventos.html">Eventos</a></li>
+        <li><a href="./pedidos.html">Pedidos</a></li>
+      </ul>
+      <div class="dropdown-social">
+        <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+        <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+        <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+      </div>
+    </div>
+  
+    <script>
+      // Seleccionamos los elementos
+      const hamburger = document.getElementById('hamburger');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+  
+      // Al hacer clic en el ícono de hamburguesa, alternamos la clase "open"
+      hamburger.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('open');
+      });
+
+      // Evento para mostrar/ocultar el menú desplegable en móvil
+      hamburger.addEventListener('click', () => {
+        if (dropdownMenu.style.display === 'flex') {
+          dropdownMenu.style.display = 'none';
+        } else {
+          dropdownMenu.style.display = 'flex';
+        }
+      });
+  
+      // Opcional: si deseas cerrar el menú al cambiar a escritorio automáticamente,
+      // puedes usar un listener de 'resize' para controlar el ancho de la ventana.
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          // Ocultamos el menú desplegable al volver a escritorio
+          dropdownMenu.style.display = 'none';
+        }
+      });
+    </script>
+
+
+
+
+
+<!-- Migas de pan -->
+<div class="breadcrumbs">
+  <nav>
+    <h3 class="breadcrumb-item"><a href="./index.html">&gt; Inicio</a></h3>
+    <h3 class="breadcrumb-item"><a href="./productos.html">&gt; Productos</a></h3>
+      <h3 class="breadcrumb-item"><a href="./figuras_sakura.html">&gt; Sakura Card Captor</a></h3>
+      <h3 class="breadcrumb-item breadcrumb-active"><a href="">&gt; Yukito Tsukishiro</a></h3>
+  </nav>
+</div>
+
+
+
+<!-- BOTÓN FLOTANTE FIJO (SCROLL TOP) -->
+<section>
+  <div class="mangaShow-floatBtn" id="mangaShowFloatBtn">
+    <!-- Flecha hacia arriba (SVG) en color negro -->
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" 
+         stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+      <path d="M18 15l-6-6-6 6"></path>
+    </svg>
+  </div>
+  </section>
+  <script>
+    // BOTÓN FLOTANTE => SCROLL TOP
+    const floatBtn = document.getElementById('mangaShowFloatBtn');
+        floatBtn.addEventListener('click', () => {
+          // Desplazamiento suave al inicio de la página
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+  </script>
+
+
+
+
+
+
+
+
+<!-- SECCION WEB1 -->
+
+
+<section class="product-section">
+  <div class="product-container">
+    
+    <!-- Columna Izquierda (Imagen Principal) -->
+    <div class="left-col">
+      <div class="image-big">
+        <img src="./Imagens/Figuras Sakura Card Captor/7.png" alt="Imagen Principal" />
+      </div>
+    </div>
+
+    <!-- Columna Derecha (Título, lista, mini-imágenes) -->
+    <div class="right-col">
+      
+      <!-- Título -->
+      <h2>PRECIO 300 BS.</h2>
+      
+      <!-- Lista de características -->
+      <ul class="features">
+        <li>Figura de plástico</li>
+        <li>Figura Chibi</li>
+        <li>Aproximadamente 7 - 8 cm</li>
+        <li>Anime: Sakura Card Captor</li>
+        <li>Personaje: Yukito Tsukishiro</li>
+        <li>Figura de alta calidad</li>
+        <li>No articulado</li>
+      </ul>
+      
+      <!-- 17 imágenes pequeñas -->
+      <div class="mini-images">
+        <a href="./seccion_sakura1.html" class="mini-card">
+          <img src="./Imagens/Figuras Sakura Card Captor/5.png" alt="Mini 1" />
+        </a>
+        <a href="./seccion_sakura.html" class="mini-card">
+          <img src="./Imagens/Figuras Sakura Card Captor/2.png" alt="Mini 2" />
+        </a>
+        <a href="./seccion_sakura3.html" class="mini-card">
+          <img src="./Imagens/Figuras Sakura Card Captor/8.png" alt="Mini 3" />
+        </a>
+        <a href="./seccion_sakura4.html" class="mini-card">
+          <img src="./Imagens/Figuras Sakura Card Captor/6.png" alt="Mini 1" />
+        </a>
+        <a href="./seccion_syaoran.html" class="mini-card">
+          <img src="./Imagens/Figuras Sakura Card Captor/3.png" alt="Mini 3" />
+        </a>
+        <a href="./seccion_tomoyo.html" class="mini-card">
+            <img src="./Imagens/Figuras Sakura Card Captor/1.png" alt="Mini 2" />
+          </a>
+        <a href="./seccion_yukito2.html" class="mini-card">
+          <img src="./Imagens/Figuras Sakura Card Captor/4.png" alt="Mini 1" />
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<script src="./Scripts/scripts seccion kimet/funcionalidad.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+  <footer>
+    <div class="footer-content">
+      <!-- Columna 1: LOGO -->
+    <div class="footer-column logo-column">
+      <!-- Ajusta la ruta con tu imagen real -->
+      <img src="./Imagens/Footer/Logo 11.png" alt="Logo" />
+    </div>
+
+    <!-- Columna 2: UBICACIÓN -->
+    <div class="footer-column location-column">
+      <h3 class="footer-title"><br>Ubicación La Paz - Bolivia</h3>
+      <p class="footer-regular">Av. Mariscal Santa Cruz<br>Edificio Torricentro, local 19</p>
+      
+      <p class="footer-bold">Comunícate con nosotros al:</p>
+      <p class="footer-regular">+591 67124160</p>
+
+      <p class="footer-bold">Envíanos un mensaje a:</p>
+      <p class="footer-regular">velvetroom.bo@gmail.com</p>
+    </div>
+
+    <!-- Columna 3: HORARIO DE ATENCIÓN -->
+    <div class="footer-column schedule-column">
+      <h3 class="footer-title">Horario de atención</h3>
+      <p class="footer-bold">Lunes a viernes:</p>
+      <p class="footer-regular">10:00 - 14:00 <br>16:00 - 20:00</p>
+
+      <p class="footer-bold">Sábados:</p>
+      <p class="footer-regular">09:00 - 13:00</p>
+    </div>
+
+    <!-- Columna 4: SÍGUENOS -->
+    <div class="footer-column social-column">
+      <h3 class="footer-title">¡Síguenos!</h3>
+      <div class="footer-icons">
+        <!-- Ajusta la ruta con tus íconos reales -->
+        <img src="./Imagens/Footer/f1.png" alt="Facebook" />
+        <img src="./Imagens/Footer/w1.png" alt="WhatsApp" />
+        <img src="./Imagens/Footer/t1.png" alt="TikTok" />
+      </div>
+    </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>
