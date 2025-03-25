@@ -1,0 +1,949 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background-color: #181818;
+    margin: 0;
+  }
+ 
+h1, h2, h4, h5, h6 {
+    font-family: 'Rowdies', bold;
+}
+
+  /* MENÚ */
+
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #F6E722;
+  }
+
+  /* ENCABEZADO Y MENÚ DE ESCRITORIO */
+  header {
+    background-color: #131313; /* color de fondo del menú */
+  }
+
+  .nav-container {
+    /* Margen lateral de 10% para escritorio */
+    margin: 0 10%;
+    /* Altura de 80px */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0;
+  }
+
+  /* Logo */
+  .logo {
+    width: 68px;
+    height: 62px;
+    object-fit: contain; /* por si la imagen tiene otras proporciones */
+  }
+
+  /* Menú principal (versión escritorio) */
+  .main-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* separación de 20px entre palabras */
+  }
+
+  /* Íconos de redes sociales (versión escritorio) */
+  .social-icons {
+    display: flex;
+    gap: 20px;
+  }
+  .social-icons img {
+    height: 18px;
+    transition: filter 0.3s ease;
+  }
+  .social-icons img:hover {
+    filter: brightness(0) saturate(100%) invert(88%) sepia(86%) saturate(355%) hue-rotate(3deg) brightness(102%) contrast(101%);
+  }
+
+  /* Menú hamburguesa (por defecto oculto en escritorio) */
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+  .hamburger:hover span {
+    background-color: #F6E722;
+  }
+
+  /* MENÚ DESPLEGABLE (VERSIÓN MÓVIL) */
+  .dropdown-menu {
+    display: none;            /* oculto por defecto */
+    background-color: #131313;
+    padding: 0 10%;          /* margen lateral similar a escritorio */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  /* Separación entre enlaces en el menú desplegable */
+  .dropdown-menu li {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* Íconos dentro del menú desplegable (móvil) */
+  .dropdown-social {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 10px;
+  }
+  .dropdown-social img {
+    height: 18px;
+    transition: filter 0.3s ease;
+  }
+  .dropdown-social img:hover {
+    filter: brightness(0) saturate(100%) invert(88%) sepia(86%) saturate(355%) hue-rotate(3deg) brightness(102%) contrast(101%);
+  }
+
+  /* Clase para mostrar/ocultar el menú desplegable */
+  .dropdown-menu.open {
+    display: block;
+  }
+
+  /* MEDIA QUERIES PARA VERSIÓN MÓVIL
+     (Se activa cuando el ancho es menor o igual a 768px)*/
+  @media (max-width: 768px) {
+    .main-menu,
+    .social-icons {
+      display: none; /* Se ocultan el menú y los íconos en móvil */
+    }
+    .hamburger {
+      display: flex; /* Se muestra el ícono de hamburguesa en móvil */
+    }
+  }
+
+
+
+
+
+/* SECCION CARRUSEL */
+
+.mangaShow-section {
+    position: relative;
+    width: 100%;
+    height: 600px;        /* Ajusta la altura en escritorio */
+    overflow: hidden;     /* Oculta lo que sobresalga */
+  }
+
+  /* Contenedor interno de slides */
+  .mangaShow-slides {
+    display: flex;
+    width: 100%;          /* 3 imágenes => 300% */
+    height: 100%;
+    transition: transform 1s ease;
+  }
+
+  /* Cada slide */
+  .mangaShow-slide {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+  }
+
+  .mangaShow-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Ajuste proporcional */
+  }
+
+  /* Overlay 60% */
+  .mangaShow-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1; /* Debajo de botones y orbes */
+  }
+
+  /* ORBES (indicadores de diapositiva) */
+  .mangaShow-indicators {
+    position: absolute;
+    bottom: 20px;         /* Ajusta según tu diseño */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .mangaShow-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #F6E722; /* Mismo color, cambia la opacidad */
+    margin: 0 5px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+
+  /* BOTONES INFERIORES (253×42 px) */
+  .mangaShow-buttons {
+    position: absolute;
+    bottom: 70px;         /* 30px desde el borde inferior */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;            /* 20px entre botones */
+    z-index: 2;           /* Sobre el overlay */
+  }
+
+  .mangaShow-btn {
+    width: 225px;
+    height: 42px;
+    background-color: #F6E722;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;     /* Lato Bold */
+    font-size: 0.9rem;    /* Texto 0.9rem en escritorio */
+    color: #000000;
+    transition: background-color 0.3s;
+    border-radius: 8px;
+  }
+  .mangaShow-btn:hover {
+    background-color: #EDEAEA; /* Hover */
+  }
+
+
+
+
+
+  /* BOTÓN FLOTANTE (SCROLL TO TOP) - FIJO COMO WHATSAPP */
+  .mangaShow-floatBtn {
+    position: fixed;        /* Siempre en la misma posición de la pantalla */
+    right: 20px;            /* Separación del borde derecho */
+    bottom: 100px;          /* Separación del borde inferior */
+    width: 50px;
+    height: 50px;
+    border-radius: 8%;
+    background-color: #F6E722;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 3;             /* Encima de todo */
+    /* Está siempre visible como WhatsApp, sin lógica de ocultar/mostrar */
+  }
+
+  /* RESPONSIVE (MÁXIMO 768px) */
+
+  @media (max-width: 768px) {
+    .mangaShow-section {
+      height: 300px;    /* Ajusta la altura */
+    }
+    .mangaShow-indicators {
+      bottom: 20px;     /* Ajustar si deseas */
+    }
+    .mangaShow-buttons {
+      bottom: 70px;     /* Ajustar si deseas */
+    }
+    .mangaShow-btn {
+      font-size: 0.8rem;   /* Texto reducido en móvil */
+      width: 100px;        /* Ajusta ancho */
+      height: 48px;        /* Ajusta altura */
+    }
+  }
+
+
+
+
+  /* CARRUSEL LETRAS 2 */
+
+  .destinyTicker-container {
+    width: 100%;
+    height: 45px;
+    background-color: #FFFFFF;
+    overflow: hidden;  /* Oculta el texto que sale del contenedor */
+    position: relative;
+  }
+
+  /* Contenedor interno para el texto en “ticker” */
+  .destinyTicker-track {
+    margin-top: 10px;
+    display: inline-block;
+    white-space: nowrap;  /* Evita que el texto haga salto de línea */
+    font-weight: 400;     /* Lato Regular */
+    color: #000000;       /* Texto en negro */
+    font-size: 1rem;      /* Ajusta en escritorio (se reducirá en móvil) */
+    animation: destinyTickerScroll 10s linear infinite;
+    font-weight: 900;   /* Lato Black */
+  }
+
+  /* Animación que mueve el texto de derecha a izquierda */
+  @keyframes destinyTickerScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+
+
+
+
+
+ /* SECCION WEB 1 */
+
+  /* SECCIÓN PRINCIPAL (2 columnas en escritorio) */
+  .destinyContent-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 40px 10%; /* 10% a los lados, 40px vertical */
+  }
+
+  /* Columna izquierda: imagen (558×502) */
+  .destinyContent-left {
+    flex: 1;  /* Ajusta si deseas un reparto distinto */
+    margin-right: 20px;  /* Separación entre columnas */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .destinyContent-img {
+    width: 400px;
+    height: 402px;
+    object-fit: cover;
+    /* Si prefieres background-image, podrías usar un div con background */
+    margin-bottom: 20px; /* Espacio de 20px sobre la imagen */
+  }
+
+  /* Columna derecha: texto */
+  .destinyContent-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineado a la izquierda */
+  }
+
+  /* Título: “LA LLAMADA DEL DESTINO” */
+  .destinyContent-title {
+    color: #F6E722;
+    font-weight: 900;   /* Lato Black */
+    font-size: 2rem;    /* 2rem en escritorio */
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+
+  /* Párrafo */
+  .destinyContent-paragraph {
+    font-weight: 400;   /* Lato Regular */
+    font-size: 1rem;    /* 1rem en escritorio */
+    color: #FFFFFF;
+    line-height: 1.5;
+    margin-bottom: 40px;
+  }
+
+  /* Botón (98×42 px, color #F6E722, texto negro) */
+  .destinyContent-btn {
+    width: 98px;
+    height: 42px;
+    background-color: #F6E722;
+    color: #000000;
+    font-weight: 700;   /* Ajusta si deseas bold => 700/900 */
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    border-radius: 8px;
+  }
+  .destinyContent-btn:hover {
+    opacity: 0.5;       /* 50% opacidad en hover */
+  }
+
+  /* RESPONSIVE (MÁXIMO 768px) */
+
+  @media (max-width: 768px) {
+    /* Carrusel de texto reducido */
+    .destinyTicker-container {
+      height: auto; /* Ajustar si deseas */
+    }
+    .destinyTicker-track {
+      font-size: 0.8rem; /* Texto más pequeño en móvil */
+      margin-bottom: 10px;
+      font-weight: 900;   /* Lato Black */
+    }
+
+    /* Sección principal => apilada */
+    .destinyContent-section {
+      flex-direction: column;
+      margin: 40px 20px; /* 20% a los lados en móvil (como solicitaste) */
+    }
+
+    /* Imagen se adapta */
+    .destinyContent-img {
+      width: 100%;
+      height: auto;
+      margin: 10px;
+    }
+
+    /* Texto a 0.8rem */
+    .destinyContent-title {
+      font-size: 1.2rem;
+      margin-top: 10px;     
+    }
+    .destinyContent-paragraph {
+      font-size: 0.8rem;
+    }
+
+    /* Botón se mantiene (puedes ajustarlo si deseas) */
+    .destinyContent-btn {
+      font-size: 0.8rem;
+    }
+  }
+
+
+
+
+
+
+  
+/* -------------------------------
+   SECCIÓN DEL CARRUSEL ACCION Y DEMAS
+--------------------------------*/
+.carousel-section {
+  text-align: center;
+  position: relative;
+  background-image: url('../Imagens/Fondo/fondo2.png'); /* Ruta de tu imagen de fondo */
+  background-size: contain;
+  background-position: center;
+}
+
+
+/* TÍTULO */
+.carousel-section h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #F6E722;
+  margin-bottom: 1rem;
+  padding-top: 100px;
+}
+
+/* CONTENEDOR PRINCIPAL DEL CARRUSEL */
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 0 calc(50% - 150px);
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+.carousel-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Cada tarjeta */
+.carousel-item {
+  scroll-snap-align: center;
+  width: 250px;
+  flex: 0 0 auto;
+  overflow: visible;
+  position: relative;
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 0.3s ease;
+  margin: 50px 1rem;
+}
+
+.carousel-item.active {
+  transform: scale(1.12);
+}
+
+/* Contenedor interno de la imagen y texto */
+.image-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  text-align: left;
+}
+
+/* Imagen */
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Degradado negro */
+.gradient {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+  border-radius: 8px;
+  display: none;
+}
+
+/* Contenedor para info y botón, ubicado en la esquina inferior izquierda */
+.info-wrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: none;
+}
+
+/* Info */
+.info {
+  color: #FFFFFF;
+  font-weight: 900;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.agotado-text {
+  font-size: 1.5rem;  /* Tamaño para versión escritorio */
+  font-weight: 900;
+  color: #d40d0d;
+  margin-top: 10px;
+}
+
+/* Primera línea en amarillo */
+.yellow-text {
+  color: #F6E722;
+}
+
+/* Botón "Reservar" estilo enlace */
+.reservar-btn {
+  display: inline-block;
+  background-color: #F6E722;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 8px 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.reservar-btn:hover {
+  background-color: rgba(246, 231, 34, 0.5);
+}
+
+/* Mostrar degradado, info y botón solo en la tarjeta activa */
+.carousel-item.active .gradient {
+  display: block;
+}
+.carousel-item.active .info-wrapper {
+  display: block;
+}
+
+/* FLECHAS DE NAVEGACIÓN (solo en desktop) */
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 1rem;
+}
+
+.arrow-btn {
+  width: 44px;
+  height: 44px;
+  background-color: #F6E722;
+  color: #181818;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.arrow-btn:hover {
+  background-color: rgba(246, 231, 34, 0.5);
+}
+
+/* BOTÓN "VER MÁS SERIES" estilo enlace */
+.ver-mas-series-btn {
+  margin-top: 1rem;
+  background-color: #F6E722;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 10px 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.carousel-section a {
+  color: #000000;
+}
+
+.ver-mas-series-btn:hover {
+  background-color: rgba(246, 231, 34, 0.5);
+}
+
+/* -------------------------------
+   MEDIA QUERIES
+--------------------------------*/
+@media (max-width: 768px) {
+  .carousel-section h2 {
+    font-size: 1.5rem;
+  }
+  .info,
+  .reservar-btn,
+  .arrow-btn,
+  .ver-mas-series-btn {
+    font-size: 0.75rem;
+  }
+  .carousel-controls {
+    display: none;
+  }
+}
+
+
+
+
+
+  
+ /* SECCION WEB 6 */
+
+ .collect-section {
+    /* Margen en desktop: 10% a ambos lados */
+    padding: 2rem 10%;
+  }
+
+ .collect-section h2 {
+    font-size: 30px;       /* 2rem en desktop */
+    font-weight: 400;      /* "Regular" */
+    color: #F6E722;        /* Amarillo */
+    text-align: center;
+    margin-bottom: 2rem;   /* Separación del grid */
+  }
+  
+  /* -----------------------------------
+     GRID DE TARJETAS
+  --------------------------------------*/
+  .grid-collect {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; /* Espacio entre tarjetas */
+  }
+  
+  /* -----------------------------------
+     TARJETA (CARD)
+  --------------------------------------*/
+  .card {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    /* Para que el contenedor escale */
+    transition: transform 0.3s ease;
+    /* Sin overflow hidden, para que no se corte la imagen */
+    overflow: visible;
+  }
+  
+  /* Contenedor interno para centrar la imagen y texto */
+  .inner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Imagen */
+  .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Texto centrado sobre la imagen */
+  .card-text {
+    position: absolute;
+    font-size: 1.5rem;       /* 2rem en desktop */
+    font-weight: 900;      /* Black = 900 */
+    color: #fff;           /* Blanco por defecto */
+    transition: color 0.3s ease;
+    text-align: center;
+  }
+  
+  /* Hover en desktop: 
+     - Escala TODO el contenedor (.card)
+     - Cambia color de texto a amarillo
+  */
+  .card:hover {
+    transform: scale(1.1);
+  }
+  .card:hover .card-text {
+    color: #F6E722;
+  }
+  
+  /* El estado "pressed" en desktop es igual al normal */
+  
+  
+  /* Hasta 768px -> 2 columnas + ajustes en texto y paddings */
+  @media (max-width: 768px) {
+    /* Margen lateral = 20px */
+    .collect-section {
+      padding: 2rem 20px;
+    }
+  
+    /* Título más pequeño */
+    .collect-section h2 {
+      font-size: 0.8rem;
+    }
+  
+    /* Grid con 2 columnas */
+    .grid-collect {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    /* Texto de la tarjeta más pequeño */
+    .card-text {
+      font-size: 0.8rem;
+    }
+  
+    /* En móvil no hay efecto hover de escala */
+    .card:hover {
+      transform: none;
+    }
+    .card:hover .card-text {
+      color: #fff;
+    }
+  
+    /* Pero al hacer click (active/focus) el texto se vuelve amarillo; 
+       ya no hay escalado */
+    .card:active .card-text,
+    .card:focus .card-text {
+      color: #F6E722;
+    }
+  }
+
+
+
+
+
+
+   /* BOTONES SIGUIENTE VOLVER  */
+
+
+  /* -------------------------------
+   SECCIÓN DE NAVEGACIÓN
+--------------------------------*/
+.navigation1-section {
+  margin: 50px 0; /* Ajusta el margen vertical a tu gusto */
+}
+
+/* Contenedor con margen lateral de 10% en escritorio */
+.nav1-container {
+  margin: 0 10%;
+  display: flex;
+  justify-content: end;
+}
+
+/* Bloque izquierdo y derecho */
+.nav1-left,
+.nav1-right {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Separación entre flecha y texto */
+}
+
+/* Flechas: enlaces de 44×44 px, borde 2px amarillo, flecha amarilla */
+.arrow1-btn {
+  width: 44px;
+  height: 44px;
+  border: 2px solid #F6E722;
+  background: transparent;
+  color: #F6E722;       /* Flecha amarilla en estado normal */
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;      /* Ajusta si deseas una flecha más grande */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover en escritorio: fondo amarillo, flecha negra */
+.arrow1-btn:hover {
+  background-color: rgba(246, 231, 34, 0.5);
+}
+
+/* Texto Lato regular, 1rem */
+.nav1-text {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #F6E722;  
+}
+
+/* -------------------------------
+   MEDIA QUERY MÓVIL (≤768px)
+--------------------------------*/
+@media (max-width: 768px) {
+  /* Margen lateral de 20px en móvil */
+  .nav1-container {
+    margin: 0 20px;
+  }
+
+  /* Texto más pequeño en móvil */
+  .nav-text {
+    font-size: 0.75rem;
+  }
+
+  /* Flechas más pequeñas (30×30 px) */
+  .arrow1-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* En móvil no hay hover en las flechas */
+  .arrow1-btn:hover {
+    background: transparent;
+    color: #F6E722;
+  }
+  /* En su lugar, el estado focus/active usa el mismo estilo de hover escritorio */
+  .arrow1-btn:focus,
+  .arrow1-btn:active {
+    background-color: #F6E722;
+    color: #181818;
+  }
+}
+
+
+
+
+
+
+
+/* FOOTER */
+footer {
+  background-color: #000000; /* Fondo negro a borde de pantalla */
+  width: 100%;
+  padding: 30px 0;           /* Espacio vertical interno */
+}
+
+/* Contenedor interno para limitar el contenido a 10% en ambos lados */
+.footer-content {
+  margin: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* Mantiene las 4 columnas en una sola fila */
+  gap: 35px;         /* Separación de 20px entre columnas */
+}
+
+/* Cada columna del footer */
+.footer-column {
+  flex: 1;           /* Distribución equitativa */
+  min-width: 0;      /* Permite que las columnas se encojan */
+  display: flex;
+  flex-direction: column;
+  color: #F6E722;    /* Color del texto */
+}
+
+/* LOGO: se reduce el tamaño */
+.logo-column img {
+  width: 83%;
+}
+
+/* TITULOS (Lato Black, 1.1rem) */
+.footer-title {
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* TEXTO BOLD (Lato Black, 1rem) */
+.footer-bold {
+  font-weight: 900;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+/* TEXTO REGULAR (Lato Regular, 1rem) */
+.footer-regular {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.schedule-column {
+  margin-top: 20px;
+}
+
+.social-column {
+  margin-top: 20px;
+}
+
+/* CONTENEDOR DE ICONOS DE REDES */
+.footer-icons {
+  display: flex;
+  gap: 10px;          /* Espacio entre íconos */
+  margin-top: 10px;
+}
+.footer-icons img {
+  height: 18px;
+}
+
+/* RESPONSIVE (MÁXIMO 768px) */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;  /* Apilar columnas verticalmente */
+    align-items: center;     /* Centrar horizontalmente */
+    text-align: center;
+    gap: 20px;         /* Separación de 20px entre columnas */
+  }
+  
+  .footer-column {
+    align-items: center;
+  }
+  .footer-column:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Ajuste del logo para pantallas pequeñas */
+  .logo-column img {
+    width: 60%;
+  }
+}
+

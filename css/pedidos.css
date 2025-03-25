@@ -1,0 +1,754 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #181818;
+  margin: 0;
+}
+h1, h2, h4, h5, h6 {
+  font-family: 'Rowdies', bold;
+}
+
+ /* MENÚ */
+
+ a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #F6E722;
+}
+
+/* ENCABEZADO Y MENÚ DE ESCRITORIO */
+header {
+  background-color: #131313; /* color de fondo del menú */
+}
+
+.nav-container {
+  /* Margen lateral de 10% para escritorio */
+  margin: 0 10%;
+  /* Altura de 80px */
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 0;
+}
+
+/* Logo */
+.logo {
+  width: 68px;
+  height: 62px;
+  object-fit: contain; /* por si la imagen tiene otras proporciones */
+}
+
+/* Menú principal (versión escritorio) */
+.main-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* separación de 20px entre palabras */
+}
+
+/* Íconos de redes sociales (versión escritorio) */
+.social-icons {
+  display: flex;
+  gap: 20px;
+}
+.social-icons img {
+  height: 18px;
+  transition: filter 0.3s ease;
+}
+.social-icons img:hover {
+  filter: brightness(0) saturate(100%) invert(88%) sepia(86%) saturate(355%) hue-rotate(3deg) brightness(102%) contrast(101%);
+}
+
+/* Menú hamburguesa (por defecto oculto en escritorio) */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+.hamburger:hover span {
+  background-color: #F6E722;
+}
+
+/* MENÚ DESPLEGABLE (VERSIÓN MÓVIL) */
+.dropdown-menu {
+  display: none;            /* oculto por defecto */
+  background-color: #131313;
+  padding: 0 10%;          /* margen lateral similar a escritorio */
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+}
+
+/* Separación entre enlaces en el menú desplegable */
+.dropdown-menu li {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Íconos dentro del menú desplegable (móvil) */
+.dropdown-social {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+.dropdown-social img {
+  height: 18px;
+  transition: filter 0.3s ease;
+}
+.dropdown-social img:hover {
+  filter: brightness(0) saturate(100%) invert(88%) sepia(86%) saturate(355%) hue-rotate(3deg) brightness(102%) contrast(101%);
+}
+
+/* Clase para mostrar/ocultar el menú desplegable */
+.dropdown-menu.open {
+  display: block;
+}
+
+/* MEDIA QUERIES PARA VERSIÓN MÓVIL
+   (Se activa cuando el ancho es menor o igual a 768px)*/
+@media (max-width: 768px) {
+  .main-menu,
+  .social-icons {
+    display: none; /* Se ocultan el menú y los íconos en móvil */
+  }
+  .hamburger {
+    display: flex; /* Se muestra el ícono de hamburguesa en móvil */
+  }
+}
+
+
+
+
+
+/* Css migas de pan */
+.breadcrumbs {
+  background-color: #3e3e41;
+  padding: 0 10%;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px 0 10px 0;
+}
+
+.breadcrumbs a{
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit; /* Hereda el color del elemento padre */
+  font-weight: 400; /* Bold */
+  font-size: 1rem;
+}
+.breadcrumbs .breadcrumb-item {
+  color: #F6E722;
+  margin-right: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.breadcrumbs a:hover {
+  font-weight: 700;
+}
+
+.breadcrumbs .breadcrumb-active a {
+  font-weight: 700;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.breadcrumb-active {
+  font-weight: 400;
+  cursor: default;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  /* Css migas de pan */
+.breadcrumbs {
+    padding: 0 20px;
+}
+.breadcrumbs nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px 0 8px 0;
+}
+
+.breadcrumbs a{
+  font-weight: 400; /* Bold */
+  font-size: 0.8rem;
+}
+.breadcrumbs a:hover {
+  font-weight: 400;
+}
+
+.breadcrumbs .breadcrumb-active a {
+  font-weight: 700;
+}
+
+.breadcrumb-item:not(:first-child):not(:last-child) {
+  display: none;
+}
+
+/* .breadcrumb-item:not(:first-child):not(:nth-last-child(2)) {
+  display: none;
+} */
+}
+
+
+
+
+
+/* SECCION WEB FORMULARIO */
+/* CONTENEDOR SECCIÓN */
+
+
+    .section-pedido {
+      margin: 0 10%;                  /* 10% a ambos lados */
+      display: flex;                  /* Dos columnas en escritorio */
+      justify-content: space-between;
+      align-items: flex-start;        /* Alinear al inicio vertical */
+      padding: 40px 0;                /* Espacio vertical */
+      gap: 20px;
+    }
+
+    /* COLUMNA IZQUIERDA (TEXTO) */
+    .pedido-texto {
+      flex: 1;
+    }
+    .pedido-texto h2 {
+      font-weight: 900;              /* Lato Black */
+      font-size: 30px;
+      color: #F6E722;
+      margin-bottom: 20px;
+    }
+    .pedido-texto p {
+      font-weight: 400;              /* Lato Regular */
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #FFFFFF;
+    }
+
+    /* COLUMNA DERECHA (FORMULARIO) */
+    .pedido-form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;        /* Alinear a la izquierda */
+    }
+
+    /* INPUTS EN LA PRIMERA FILA (GMAIL Y CEL) */
+    .form-row {
+      display: flex;
+      width: 100%;                   /* Para que se adapte al contenedor */
+      gap: 10px;                     /* Espacio entre inputs */
+      margin-bottom: 20px;           /* Espacio debajo de la fila */
+    }
+
+    .form-input {
+      background-color: #FFFFFF;
+      color: #000000;
+      font-weight: 400;
+      font-size: 1rem;
+      border: none;
+      padding: 0 10px;
+    }
+
+    /* Aseguramos las dimensiones en ESCRITORIO */
+    .input-gmail, .input-cel {
+      width: 100%;
+      height: 60px;
+    }
+
+    /* TERCER INPUT (NOMBRE) */
+    .input-nombre {
+      width: 100%;
+      height: 60px;
+      margin-bottom: 20px;           /* Espacio debajo */
+    }
+
+    /* CUARTO INPUT (MENSAJE) */
+    .input-mensaje {
+      width: 100%;
+      height: 233px;
+      margin-bottom: 20px;
+      padding-top: 10px;             /* Algo de espacio arriba para el texto */
+      resize: none;                  /* Evitar que el usuario cambie el tamaño (opcional) */
+    }
+
+    /* BOTÓN ENVIAR */
+    .btn-enviar {
+      width: 98px;
+      height: 42px;
+      background-color: #F6E722;
+      color: #000000;
+      font-weight: 700;              /* Lato Regular */
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.3s;
+      border-radius: 8px;
+    }
+    .btn-enviar:hover {
+      opacity: 0.5;                  /* Hover con opacidad 50% */
+    }
+
+    /* MODALES (VENTANAS EMERGENTES)*/
+    /* Overlay para oscurecer el fondo y detectar clics fuera */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5); /* Oscurece el resto */
+      display: none;               /* Oculto por defecto */
+      justify-content: center;
+      align-items: center;
+      z-index: 999;                /* Sobre todo el contenido */
+    }
+
+    /* Contenedor de la ventana emergente */
+    .modal-content {
+      width: 362px;
+      height: 202px;
+      background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+      backdrop-filter: blur(5px);          /* Efecto blur (vidrio) */
+      border-radius: 8px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .modal-text {
+      color: #FFFFFF;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    /* Botonera (SI - NO) en el primer modal */
+    .modal-buttons {
+      display: flex;
+      gap: 20px; /* Espacio entre botones */
+    }
+
+    .btn-modal {
+      width: 98px;
+      height: 42px;
+      background-color: #F6E722;
+      color: #000000;
+      font-weight: 400;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .btn-modal:hover {
+      opacity: 0.5;
+    }
+
+  
+
+    /* MODAL DE ÉXITO (SEGUNDO) */
+    #modal-exito .modal-content {
+      width: 362px;
+      height: 202px;
+    }
+
+    /* Ícono de check y texto centrados */
+    .exito-icon {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 10px;
+    }
+
+    /* Ícono "X" en la esquina superior derecha */
+    .close-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+    .close-icon img {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* RESPONSIVE (MÓVIL) */
+    @media (max-width: 768px) {
+      
+      
+      .section-pedido {
+        margin: 0 20px;                  /* 10% a ambos lados */
+        display: block;
+
+      }
+
+      .pedido-texto h2 {
+        font-size: 1.2rem;
+      }
+
+      .pedido-texto {
+        font-size: 0.8rem;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+
+      .btn-enviar {
+        font-size: 1.2rem;
+      }
+
+
+
+      .form-row {
+        flex-direction: column;
+        gap: 20px;               /* Más espacio en vertical */
+      }
+      .input-gmail, .input-cel,
+      .input-nombre, .input-mensaje {
+        width: 100% !important;  /* Ocupar ancho completo */
+        max-width: 100%;         /* Evitar que crezca más de la pantalla */
+      }
+
+      /* Ajustamos tamaño del modal en móvil si deseas */
+      .modal-content {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        padding: 20px 20px;
+      }
+      .modal-text {
+        margin-bottom: 20px;
+      }
+    }
+
+
+
+  
+/* SECCION WEB 2 */
+
+
+.info2-section {
+  margin: 20px 10%;     /* 20px arriba/abajo, 10% a los lados */
+}
+
+/* CONTENEDOR DE LOS 3 RECTÁNGULOS */
+.info2-rectangles {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;            /* 20px de separación entre rectángulos */
+  margin-bottom: 20px;  /* Espacio de 20px debajo (antes del mapa) */
+}
+
+/* CADA RECTÁNGULO (235×110) */
+.info2-rect {
+  width: 235px;
+  height: 110px;
+  background-color: #000000; /* Fondo negro */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* Centrar verticalmente */
+  align-items: center;       /* Centrar horizontalmente */
+}
+
+/* TEXTO DEL RECTÁNGULO */
+.info2-title {
+  font-weight: 900;    /* Lato Black */
+  font-size: 1rem;     /* 1rem en escritorio */
+  color: #F6E722;
+  margin-bottom: 5px;  /* Espacio entre líneas */
+  text-align: center;
+}
+.info2-text {
+  font-weight: 400;    /* Lato Regular */
+  font-size: 1rem;
+  color: #F6E722;
+  text-align: center;
+}
+
+/* CONTENEDOR DEL MAPA (1146×500) */
+.contenedor-mapa {
+  width: calc(100% - 220px); /* 110px de margen a cada lado */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+/* ===============================
+   RESPONSIVE (MÓVIL)
+   - Márgenes 20px a los lados
+   - Tipografía 0.8rem
+   - Rectángulos se apilan verticalmente
+   - El mapa se ajusta al ancho
+================================ */
+@media (max-width: 768px) {
+  .info2-section {
+    margin: 20px;  /* 20px a cada lado en pantallas pequeñas */
+  }
+
+  /* Rectángulos en columna */
+  .info2-rectangles {
+    flex-direction: column;
+    align-items: center; /* Opcional, si quieres centrar */
+  }
+
+  .info2-rect {
+    width: 100%;       /* Ocupa todo el ancho disponible */
+    max-width: 235px;  /* Ajusta un máximo si deseas */
+    height: 110px;      /* Para que no se deforme en pantallas pequeñas */
+    margin-bottom: 20px;
+  }
+
+  /* Ajuste de tipografías a 0.8rem */
+  .info2-title,
+  .info2-text {
+    font-size: 0.8rem;
+  }
+
+  /* Mapa ajustado al ancho */
+  .contenedor-mapa {
+    width: 100%;
+    padding: 0 20px;
+}
+}
+
+
+
+
+/* BOTÓN FLOTANTE (SCROLL TO TOP) - FIJO COMO WHATSAPP */
+.mangaShow-floatBtn {
+  position: fixed;        /* Siempre en la misma posición de la pantalla */
+  right: 20px;            /* Separación del borde derecho */
+  bottom: 100px;          /* Separación del borde inferior */
+  width: 50px;
+  height: 50px;
+  border-radius: 8%;
+  background-color: #F6E722;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 3;             /* Encima de todo */
+  /* Está siempre visible como WhatsApp, sin lógica de ocultar/mostrar */
+}
+
+
+
+
+
+  /* BOTONES SIGUIENTE VOLVER  */
+
+
+  /* -------------------------------
+   SECCIÓN DE NAVEGACIÓN
+--------------------------------*/
+.navigation1-section {
+  margin: 50px 0; /* Ajusta el margen vertical a tu gusto */
+}
+
+/* Contenedor con margen lateral de 10% en escritorio */
+.nav1-container {
+  margin: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Bloque izquierdo y derecho */
+.nav1-left,
+.nav1-right {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Separación entre flecha y texto */
+}
+
+/* Flechas: enlaces de 44×44 px, borde 2px amarillo, flecha amarilla */
+.arrow1-btn {
+  width: 44px;
+  height: 44px;
+  border: 2px solid #F6E722;
+  background: transparent;
+  color: #F6E722;       /* Flecha amarilla en estado normal */
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;      /* Ajusta si deseas una flecha más grande */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover en escritorio: fondo amarillo, flecha negra */
+.arrow1-btn:hover {
+  background-color: rgba(246, 231, 34, 0.5);
+}
+
+/* Texto Lato regular, 1rem */
+.nav1-text {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #F6E722;  
+}
+
+/* -------------------------------
+   MEDIA QUERY MÓVIL (≤768px)
+--------------------------------*/
+@media (max-width: 768px) {
+  /* Margen lateral de 20px en móvil */
+  .nav1-container {
+    margin: 0 20px;
+  }
+
+  /* Texto más pequeño en móvil */
+  .nav-text {
+    font-size: 0.75rem;
+  }
+
+  /* Flechas más pequeñas (30×30 px) */
+  .arrow1-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* En móvil no hay hover en las flechas */
+  .arrow1-btn:hover {
+    background: transparent;
+    color: #F6E722;
+  }
+  /* En su lugar, el estado focus/active usa el mismo estilo de hover escritorio */
+  .arrow1-btn:focus,
+  .arrow1-btn:active {
+    background-color: #F6E722;
+    color: #181818;
+  }
+}
+
+
+
+
+
+
+
+/* FOOTER */
+footer {
+  background-color: #000000; /* Fondo negro a borde de pantalla */
+  width: 100%;
+  padding: 30px 0;           /* Espacio vertical interno */
+}
+
+/* Contenedor interno para limitar el contenido a 10% en ambos lados */
+.footer-content {
+  margin: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* Mantiene las 4 columnas en una sola fila */
+  gap: 35px;         /* Separación de 20px entre columnas */
+}
+
+/* Cada columna del footer */
+.footer-column {
+  flex: 1;           /* Distribución equitativa */
+  min-width: 0;      /* Permite que las columnas se encojan */
+  display: flex;
+  flex-direction: column;
+  color: #F6E722;    /* Color del texto */
+}
+
+/* LOGO: se reduce el tamaño */
+.logo-column img {
+  width: 83%;
+}
+
+/* TITULOS (Lato Black, 1.1rem) */
+.footer-title {
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* TEXTO BOLD (Lato Black, 1rem) */
+.footer-bold {
+  font-weight: 900;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+/* TEXTO REGULAR (Lato Regular, 1rem) */
+.footer-regular {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.schedule-column {
+  margin-top: 20px;
+}
+
+.social-column {
+  margin-top: 20px;
+}
+
+/* CONTENEDOR DE ICONOS DE REDES */
+.footer-icons {
+  display: flex;
+  gap: 10px;          /* Espacio entre íconos */
+  margin-top: 10px;
+}
+.footer-icons img {
+  height: 18px;
+}
+
+/* RESPONSIVE (MÁXIMO 768px) */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;  /* Apilar columnas verticalmente */
+    align-items: center;     /* Centrar horizontalmente */
+    text-align: center;
+    gap: 20px;         /* Separación de 20px entre columnas */
+  }
+  
+  .footer-column {
+    align-items: center;
+  }
+  .footer-column:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Ajuste del logo para pantallas pequeñas */
+  .logo-column img {
+    width: 60%;
+  }
+}

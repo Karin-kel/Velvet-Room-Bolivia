@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasia</title>
+    <link rel="stylesheet" href="./css/accion.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./Imagens/Favicon/favicon.png">
+</head>
+<body>
+    
+     <!-- MENÚ -->
+    <header>
+      <div class="nav-container">
+        <!-- LOGO -->
+        <img src="./Imagens/Menu/logo.png" alt="Logo" class="logo" />
+  
+        <!-- MENÚ PRINCIPAL (solo visible en escritorio) -->
+        <nav class="main-menu">
+          <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./productos.html">Productos</a></li>
+            <li><a href="./nosotros.html">Nosotros</a></li>
+            <li><a href="./eventos.html">Eventos</a></li>
+            <li><a href="./pedidos.html">Pedidos</a></li>
+          </ul>
+        </nav>
+  
+        <!-- ÍCONOS REDES SOCIALES (solo visible en escritorio) -->
+        <div class="social-icons">
+          <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+          <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+          <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+        </div>
+  
+        <!-- MENÚ HAMBURGUESA (solo visible en móvil) -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+  
+    <!-- MENÚ DESPLEGABLE (MÓVIL) -->
+    <div class="dropdown-menu" id="dropdownMenu">
+      <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./productos.html">Productos</a></li>
+        <li><a href="./nosotros.html">Nosotros</a></li>
+        <li><a href="./eventos.html">Eventos</a></li>
+        <li><a href="./pedidos.html">Pedidos</a></li>
+      </ul>
+      <div class="dropdown-social">
+        <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+        <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+        <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+      </div>
+    </div>
+  
+    <script>
+      // Seleccionamos los elementos
+      const hamburger = document.getElementById('hamburger');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+  
+      // Al hacer clic en el ícono de hamburguesa, alternamos la clase "open"
+      hamburger.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('open');
+      });
+
+      // Evento para mostrar/ocultar el menú desplegable en móvil
+      hamburger.addEventListener('click', () => {
+        if (dropdownMenu.style.display === 'flex') {
+          dropdownMenu.style.display = 'none';
+        } else {
+          dropdownMenu.style.display = 'flex';
+        }
+      });
+  
+      // Opcional: si deseas cerrar el menú al cambiar a escritorio automáticamente,
+      // puedes usar un listener de 'resize' para controlar el ancho de la ventana.
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          // Ocultamos el menú desplegable al volver a escritorio
+          dropdownMenu.style.display = 'none';
+        }
+      });
+    </script>
+
+
+
+
+
+
+<!-- Migas de pan -->
+<div class="breadcrumbs">
+  <nav>
+      <h3 class="breadcrumb-item"><a href="./index.html">&gt; Inicio</a></h3>
+      <h3 class="breadcrumb-item"><a href="./productos.html">&gt; Productos</a></h3>
+      <h3 class="breadcrumb-item breadcrumb-active"><a href="">&gt; Mangas de Fantasía</a></h3>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+
+   <!-- SECCIO WE1 -->
+
+   <div class="action28-bgContainer">
+    <div class="action28-bgOverlay"></div>
+    <div class="action28-textWrap">
+      <h2 class="action28-title">MANGAS DE FANTASÍA</h2>
+    </div>
+  </div>
+
+  <!-- SECCIÓN DE 28 IMÁGENES (210×369 px) -->
+  <div class="action28-imagesWrap">
+    <!-- Repetimos 28 ítems, cada uno con su enlace y texto en overlay -->
+    <!-- Ejemplo para 4, tú replicarás hasta 28. Aquí demostramos 8 y luego
+         indicamos que se pueden repetir hasta 28. -->
+
+    <!-- ITEM 1 -->
+    <div class="action28-item">
+        <img src="./Imagens/Fantasia/1.png" alt="Manga 1">
+      <div class="action28-hoverOverlay">
+        <div class="action28-hoverText">
+            Manga: Rankings Of Kings<br>
+            Editorial: Ivrea<br>
+            Precio: 65 Bs.
+        </div>
+      </div>
+    </div>
+      
+
+    <!-- ITEM 2 -->
+    <div class="action28-item"> 
+        <img src="./Imagens/Fantasia/2.png" alt="Manga 2">
+      <div class="action28-hoverOverlay">
+        <div class="action28-hoverText">
+            Manga: La Vez que reencarne en un slime<br>
+            Editorial: Panini<br>
+            Precio: 65 Bs.
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ITEM 3 -->
+    <div class="action28-item">
+      <img src="./Imagens/Fantasia/3.png" alt="Manga 3">
+      <div class="action28-hoverOverlay">
+        <div class="action28-hoverText">
+            Manga: Berserk<br>
+            Editorial: Panini<br>
+            Precio: 70 Bs.
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 4 -->
+    <div class="action28-item">
+      <img src="./Imagens/Fantasia/4.png" alt="Manga 4">
+      <div class="action28-hoverOverlay">
+        <div class="action28-hoverText">
+            Manga: Mieruku Chan<br>
+            Editorial: Ivrea<br>
+            Precio: 65 Bs.
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 5 -->
+    <div class="action28-item">
+      <img src="./Imagens/Fantasia/5.png" alt="Manga 5">
+      <div class="action28-hoverOverlay">
+        <div class="action28-hoverText">
+          Manga: Dorohedoro<br>
+          Editorial: Ivrea<br>
+          Precio: 120 Bs.
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 6 -->
+    <div class="action28-item">
+      <img src="./Imagens/Fantasia/6.png" alt="Manga 6">
+      <div class="action28-hoverOverlay">
+        <div class="action28-hoverText">
+          Manga: Konosuba<br>
+          Editorial: Ivrea<br>
+          Precio: 90 Bs.
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 7 -->
+    <div class="action28-item">
+      <img src="./Imagens/Fantasia/7.png" alt="Manga 7">
+      <div class="action28-hoverOverlay">
+        <div class="action28-hoverText">
+          Manga: Iruma-kun<br>
+          Editorial: Ivrea<br>
+          Precio: 90 Bs.
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM 8 -->
+    <div class="action28-item">
+      <img src="./Imagens/Fantasia/8.png" alt="Manga 8">
+      <div class="action28-hoverOverlay">
+        <div class="action28-hoverText">
+          Manga: La vez que reencarne en un slime<br>
+          Editorial: Panini<br>
+          Precio: 65 Bs.
+        </div>
+      </div>
+    </div>
+
+    <!-- Continúa hasta ITEM 28 con la misma estructura -->
+    <!-- ... -->
+
+    <!-- ITEM 9 -->
+    <div class="action28-item">
+        <img src="./Imagens/Fantasia/9.png" alt="Manga 9">
+        <div class="action28-hoverOverlay">
+          <div class="action28-hoverText">
+            Manga: Mushuko Tensei<br>
+            Editorial: Panini<br>
+            Precio: 65 Bs.
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 10 -->
+      <div class="action28-item">
+        <img src="./Imagens/Fantasia/10.png" alt="Manga 10">
+        <div class="action28-hoverOverlay">
+          <div class="action28-hoverText">
+            Manga: Elden Ring<br>
+            Editorial: Panini<br>
+            Precio: 65 Bs.
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 11 -->
+      <div class="action28-item">
+        <img src="./Imagens/Fantasia/11.png" alt="Manga 11">
+        <div class="action28-hoverOverlay">
+          <div class="action28-hoverText">
+            Manga: Frieren<br>
+            Editorial: Ivrea<br>
+            Precio: 58 Bs.
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 12 -->
+      <div class="action28-item">
+        <img src="./Imagens/Fantasia/12.png" alt="Manga 12">
+        <div class="action28-hoverOverlay">
+          <div class="action28-hoverText">
+            Manga: Call Of The Night<br>
+            Editorial: Ivrea<br>
+            Precio: 58 Bs.
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 13 -->
+      <div class="action28-item">
+        <img src="./Imagens/Fantasia/13.png" alt="Manga 13">
+        <div class="action28-hoverOverlay">
+          <div class="action28-hoverText">
+            Manga: Dorohedoro<br>
+            Editorial: Ivrea<br>
+            Precio: 120 Bs.
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 14 -->
+      <div class="action28-item">
+        <img src="./Imagens/Fantasia/14.png" alt="Manga 14">
+        <div class="action28-hoverOverlay">
+          <div class="action28-hoverText">
+            Manga: Re Zero<br>
+            Editorial: Panini<br>
+            Precio: 65 Bs.
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+
+
+
+
+  <!-- BOTÓN FLOTANTE FIJO (SCROLL TOP) -->
+  <div class="mangaShow-floatBtn" id="mangaShowFloatBtn">
+    <!-- Flecha hacia arriba (SVG) en color negro -->
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" 
+         stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+      <path d="M18 15l-6-6-6 6"></path>
+    </svg>
+  </div>
+
+  <script>
+    // BOTÓN FLOTANTE => SCROLL TOP
+    const floatBtn = document.getElementById('mangaShowFloatBtn');
+        floatBtn.addEventListener('click', () => {
+          // Desplazamiento suave al inicio de la página
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+  </script>
+
+
+
+
+
+
+
+<!-- BOTONES SIGUIENTE VOLVER -->
+
+<section class="navigation1-section">
+  <div class="nav1-container">
+    
+    <!-- Botón y texto a la IZQUIERDA -->
+    <a href="./psicologico.html" class="nav1-left">
+      <button class="arrow1-btn left-arrow">
+        <!-- Flecha Izquierda (puedes usar SVG o Unicode) -->
+        <img src="./Imagens/Iconos/i.png" alt="">
+      </button>
+      <span class="nav1-text">Mangas Psicológicos</span>
+    </a>
+    <!-- Botón y texto a la DERECHA -->
+    <a href="./romance.html" class="nav1-right">
+      <span class="nav1-text">Mangas Romance</span>
+      <button class="arrow1-btn right-arrow">
+        <!-- Flecha Derecha -->
+        <img src="./Imagens/Iconos/d.png" alt="">
+      </button>
+    </a>
+
+  </div>
+</section>
+
+<script src="./Scripts/funcionalidad.js"></script>
+
+
+
+
+ 
+
+
+
+      <!-- FOOTER -->
+
+  <footer>
+    <div class="footer-content">
+      <!-- Columna 1: LOGO -->
+    <div class="footer-column logo-column">
+      <!-- Ajusta la ruta con tu imagen real -->
+      <img src="./Imagens/Footer/Logo 11.png" alt="Logo" />
+    </div>
+
+    <!-- Columna 2: UBICACIÓN -->
+    <div class="footer-column location-column">
+      <h3 class="footer-title"><br>Ubicación La Paz - Bolivia</h3>
+      <p class="footer-regular">Av. Mariscal Santa Cruz<br>Edificio Torricentro, local 19</p>
+      
+      <p class="footer-bold">Comunícate con nosotros al:</p>
+      <p class="footer-regular">+591 67124160</p>
+
+      <p class="footer-bold">Envíanos un mensaje a:</p>
+      <p class="footer-regular">velvetroom.bo@gmail.com</p>
+    </div>
+
+    <!-- Columna 3: HORARIO DE ATENCIÓN -->
+    <div class="footer-column schedule-column">
+      <h3 class="footer-title">Horario de atención</h3>
+      <p class="footer-bold">Lunes a viernes:</p>
+      <p class="footer-regular">10:00 - 14:00 <br>16:00 - 20:00</p>
+
+      <p class="footer-bold">Sábados:</p>
+      <p class="footer-regular">09:00 - 13:00</p>
+    </div>
+
+    <!-- Columna 4: SÍGUENOS -->
+    <div class="footer-column social-column">
+      <h3 class="footer-title">¡Síguenos!</h3>
+      <div class="footer-icons">
+        <!-- Ajusta la ruta con tus íconos reales -->
+        <img src="./Imagens/Footer/f1.png" alt="Facebook" />
+        <img src="./Imagens/Footer/w1.png" alt="WhatsApp" />
+        <img src="./Imagens/Footer/t1.png" alt="TikTok" />
+      </div>
+    </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>

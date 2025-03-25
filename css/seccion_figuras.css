@@ -1,0 +1,516 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background-color: #181818;
+    margin: 0;
+  }
+
+  h1, h2, h4, h5, h6 {
+    font-family: 'Rowdies', bold;
+}
+
+
+   /* MENÚ */
+
+   a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #F6E722;
+  }
+
+  /* ENCABEZADO Y MENÚ DE ESCRITORIO */
+  header {
+    background-color: #131313; /* color de fondo del menú */
+  }
+
+  .nav-container {
+    /* Margen lateral de 10% para escritorio */
+    margin: 0 10%;
+    /* Altura de 80px */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0;
+  }
+
+  /* Logo */
+  .logo {
+    width: 68px;
+    height: 62px;
+    object-fit: contain; /* por si la imagen tiene otras proporciones */
+  }
+
+  /* Menú principal (versión escritorio) */
+  .main-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* separación de 20px entre palabras */
+  }
+
+  /* Íconos de redes sociales (versión escritorio) */
+  .social-icons {
+    display: flex;
+    gap: 20px;
+  }
+  .social-icons img {
+    height: 18px;
+    transition: filter 0.3s ease;
+  }
+  .social-icons img:hover {
+    filter: brightness(0) saturate(100%) invert(88%) sepia(86%) saturate(355%) hue-rotate(3deg) brightness(102%) contrast(101%);
+  }
+
+  /* Menú hamburguesa (por defecto oculto en escritorio) */
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+  .hamburger:hover span {
+    background-color: #F6E722;
+  }
+
+  /* MENÚ DESPLEGABLE (VERSIÓN MÓVIL) */
+  .dropdown-menu {
+    display: none;            /* oculto por defecto */
+    background-color: #131313;
+    padding: 0 10%;          /* margen lateral similar a escritorio */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  /* Separación entre enlaces en el menú desplegable */
+  .dropdown-menu li {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* Íconos dentro del menú desplegable (móvil) */
+  .dropdown-social {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 10px;
+  }
+  .dropdown-social img {
+    height: 18px;
+    transition: filter 0.3s ease;
+  }
+  .dropdown-social img:hover {
+    filter: brightness(0) saturate(100%) invert(88%) sepia(86%) saturate(355%) hue-rotate(3deg) brightness(102%) contrast(101%);
+  }
+
+  /* Clase para mostrar/ocultar el menú desplegable */
+  .dropdown-menu.open {
+    display: block;
+  }
+
+  /* MEDIA QUERIES PARA VERSIÓN MÓVIL
+     (Se activa cuando el ancho es menor o igual a 768px)*/
+  @media (max-width: 768px) {
+    .main-menu,
+    .social-icons {
+      display: none; /* Se ocultan el menú y los íconos en móvil */
+    }
+
+    .hamburger {
+      display: flex; /* Se muestra el ícono de hamburguesa en móvil */
+    }
+  }
+
+
+
+
+
+
+/* Css migas de pan */
+.breadcrumbs {
+  background-color: #3e3e41;
+  padding: 0 10%;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px 0 10px 0;
+}
+
+.breadcrumbs a{
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit; /* Hereda el color del elemento padre */
+  font-weight: 400; /* Bold */
+  font-size: 1rem;
+}
+.breadcrumbs .breadcrumb-item {
+  color: #F6E722;
+  margin-right: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.breadcrumbs a:hover {
+  font-weight: 700;
+}
+
+.breadcrumbs .breadcrumb-active a {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.breadcrumb-active {
+  font-weight: 400;
+  cursor: default;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  /* Css migas de pan */
+.breadcrumbs {
+    padding: 0 20px;
+}
+.breadcrumbs nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px 0 8px 0;
+}
+
+.breadcrumbs a{
+  font-weight: 400; /* Bold */
+  font-size: 0.8rem;
+}
+.breadcrumbs a:hover {
+  font-weight: 400;
+}
+
+.breadcrumbs .breadcrumb-active a {
+  font-weight: 700;
+}
+
+/* .breadcrumb-item:not(:first-child):not(:last-child) {
+  display: none;
+} */
+
+.breadcrumb-item:not(:first-child):not(:nth-last-child(2)) {
+  display: none;
+}
+}
+
+
+
+
+/* BOTÓN FLOTANTE (SCROLL TO TOP) - FIJO COMO WHATSAPP */
+.mangaShow-floatBtn {
+  position: fixed;        /* Siempre en la misma posición de la pantalla */
+  right: 20px;            /* Separación del borde derecho */
+  bottom: 100px;          /* Separación del borde inferior */
+  width: 50px;
+  height: 50px;
+  border-radius: 8%;
+  background-color: #F6E722;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 3;             /* Encima de todo */
+  /* Está siempre visible como WhatsApp, sin lógica de ocultar/mostrar */
+}
+
+
+
+
+
+
+
+
+  
+
+   /* SECCION WEB1 */
+
+   /* -----------------------------------
+   SECCIÓN DE PRODUCTO
+-------------------------------------*/
+.product-section {
+  /* Margen en escritorio */
+  padding: 2rem 10%;
+}
+
+/* Contenedor principal: 2 columnas en escritorio */
+.product-container {
+  display: flex;
+  gap: 2rem; /* Espacio entre columnas */
+}
+
+/* Columna izquierda (imagen principal) y derecha (título, lista, mini-imágenes) */
+.left-col {
+  width: 45%;
+}
+
+.right-col {
+  width: 55%;
+}
+
+/* Contenedor de la imagen principal con efecto cristal y borde gris */
+.image-big {
+  background-color: rgba(36, 36, 36, 0.7); /* Efecto cristal */
+  border: 1px solid #3C3C3C;            /* Borde gris oscuro */
+  padding: 1rem; /* Pequeño padding interno */
+}
+
+/* Imagen principal ocupa todo el ancho de su contenedor */
+.image-big img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Título */
+.right-col h2 {
+  font-size: 2.5rem;   /* Desktop */
+  font-weight: 900;    /* Black */
+  color: #F6E722;      /* Amarillo */
+  margin-bottom: 1rem;
+  text-align: left;    /* Alineado a la izquierda */
+}
+
+/* Lista de características */
+.features {
+  color: #ffffff;
+  font-size: 1rem;     /* Desktop */
+  font-weight: 400;    /* Regular */
+  margin-bottom: 1rem;
+  list-style: disc;
+  padding-left: 1.5rem; /* Sangría para la lista */
+  text-align: left;
+}
+.features li {
+  line-height: 2; /* o 1.6, 1.8, etc., según la separación que desees */
+}
+
+/* Contenedor de las mini-imágenes */
+.mini-images {
+  display: grid;
+  /* Por defecto (pantallas muy anchas) 7 columnas */
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+}
+
+/* Cada mini-imagen con efecto cristal y borde gris */
+.mini-card {
+  display: block;
+  background-color: rgba(36, 36, 36, 0.7); /* Efecto cristal */
+  border: 1px solid #3C3C3C;
+  text-decoration: none;
+  transition: border-color 0.3s ease;
+  padding: 0.5rem;
+}
+
+.mini-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hover en escritorio: cambia el borde a amarillo */
+.mini-card:hover {
+  border-color: #F6E722;
+}
+
+/* -----------------------------------
+   BREAKPOINTS
+-------------------------------------*/
+
+/* A partir de 1400px hacia abajo: 6 columnas */
+@media (max-width: 1500px) {
+  .mini-images {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* A partir de 1100px hacia abajo: 6 columnas (repetido, 
+   pero si en tu diseño no cambia entre 1400 y 1100, 
+   lo dejamos igual) */
+@media (max-width: 1200px) {
+  .mini-images {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* A partir de 800px hacia abajo: 6 columnas */
+@media (max-width: 900px) {
+  .mini-images {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* A partir de 768px hacia abajo: una sola columna y 2 columnas para mini-imágenes */
+@media (max-width: 768px) {
+  /* Ahora todo se apila en una sola columna */
+  .product-section {
+    /* Margen en escritorio */
+    padding: 2rem 20px;
+  }
+  
+  .product-container {
+    flex-direction: column;
+  }
+  .left-col,
+  .right-col {
+    width: 100%;
+  }
+
+  /* Ajuste de tamaños de fuente */
+  .right-col h2 {
+    font-size: 1.2rem;
+  }
+  .features {
+    font-size: 0.8rem;
+  }
+
+  /* Mini-imágenes en 2 columnas */
+  .mini-images {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Eliminar hover en móvil */
+  .mini-card:hover {
+    border-color: #3C3C3C !important;
+  }
+}
+@media (max-width: 550px) {
+  .mini-images {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 400px) {
+  .mini-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+
+
+
+
+
+
+/* FOOTER */
+footer {
+  background-color: #000000; /* Fondo negro a borde de pantalla */
+  width: 100%;
+  padding: 30px 0;           /* Espacio vertical interno */
+}
+
+/* Contenedor interno para limitar el contenido a 10% en ambos lados */
+.footer-content {
+  margin: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* Mantiene las 4 columnas en una sola fila */
+  gap: 35px;         /* Separación de 20px entre columnas */
+}
+
+/* Cada columna del footer */
+.footer-column {
+  flex: 1;           /* Distribución equitativa */
+  min-width: 0;      /* Permite que las columnas se encojan */
+  display: flex;
+  flex-direction: column;
+  color: #F6E722;    /* Color del texto */
+}
+
+/* LOGO: se reduce el tamaño */
+.logo-column img {
+  width: 83%;
+}
+
+/* TITULOS (Lato Black, 1.1rem) */
+.footer-title {
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* TEXTO BOLD (Lato Black, 1rem) */
+.footer-bold {
+  font-weight: 900;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+/* TEXTO REGULAR (Lato Regular, 1rem) */
+.footer-regular {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.schedule-column {
+  margin-top: 20px;
+}
+
+.social-column {
+  margin-top: 20px;
+}
+
+/* CONTENEDOR DE ICONOS DE REDES */
+.footer-icons {
+  display: flex;
+  gap: 10px;          /* Espacio entre íconos */
+  margin-top: 10px;
+}
+.footer-icons img {
+  height: 18px;
+}
+
+/* RESPONSIVE (MÁXIMO 768px) */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;  /* Apilar columnas verticalmente */
+    align-items: center;     /* Centrar horizontalmente */
+    text-align: center;
+    gap: 20px;         /* Separación de 20px entre columnas */
+  }
+  
+  .footer-column {
+    align-items: center;
+  }
+  .footer-column:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Ajuste del logo para pantallas pequeñas */
+  .logo-column img {
+    width: 60%;
+  }
+}

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figuras Jujutsu Kaisen</title>
+    <link rel="stylesheet" href="./css/figuras_jujutsu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./Imagens/Favicon/favicon.png">
+</head>
+<body>
+    
+     <!-- MENÚ -->
+    <header>
+      <div class="nav-container">
+        <!-- LOGO -->
+        <img src="./Imagens/Menu/logo.png" alt="Logo" class="logo" />
+  
+        <!-- MENÚ PRINCIPAL (solo visible en escritorio) -->
+        <nav class="main-menu">
+          <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./productos.html">Productos</a></li>
+            <li><a href="./nosotros.html">Nosotros</a></li>
+            <li><a href="./eventos.html">Eventos</a></li>
+            <li><a href="./pedidos.html">Pedidos</a></li>
+          </ul>
+        </nav>
+  
+        <!-- ÍCONOS REDES SOCIALES (solo visible en escritorio) -->
+        <div class="social-icons">
+          <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+          <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+          <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+        </div>
+  
+        <!-- MENÚ HAMBURGUESA (solo visible en móvil) -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+  
+    <!-- MENÚ DESPLEGABLE (MÓVIL) -->
+    <div class="dropdown-menu" id="dropdownMenu">
+      <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./productos.html">Productos</a></li>
+        <li><a href="./nosotros.html">Nosotros</a></li>
+        <li><a href="./eventos.html">Eventos</a></li>
+        <li><a href="./pedidos.html">Pedidos</a></li>
+      </ul>
+      <div class="dropdown-social">
+        <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+        <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+        <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+      </div>
+    </div>
+  
+    <script>
+      // Seleccionamos los elementos
+      const hamburger = document.getElementById('hamburger');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+  
+      // Al hacer clic en el ícono de hamburguesa, alternamos la clase "open"
+      hamburger.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('open');
+      });
+
+      // Evento para mostrar/ocultar el menú desplegable en móvil
+      hamburger.addEventListener('click', () => {
+        if (dropdownMenu.style.display === 'flex') {
+          dropdownMenu.style.display = 'none';
+        } else {
+          dropdownMenu.style.display = 'flex';
+        }
+      });
+  
+      // Opcional: si deseas cerrar el menú al cambiar a escritorio automáticamente,
+      // puedes usar un listener de 'resize' para controlar el ancho de la ventana.
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          // Ocultamos el menú desplegable al volver a escritorio
+          dropdownMenu.style.display = 'none';
+        }
+      });
+    </script>
+
+
+
+
+
+
+<!-- Migas de pan -->
+<div class="breadcrumbs">
+  <nav>
+    <h3 class="breadcrumb-item"><a href="./index.html">&gt; Inicio</a></h3>
+    <h3 class="breadcrumb-item"><a href="./productos.html">&gt; Productos</a></h3>
+    <h3 class="breadcrumb-item breadcrumb-active"><a href="">&gt; Figuras Jujutsu Kaisen</a></h3>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+<!-- BOTÓN FLOTANTE FIJO (SCROLL TOP) -->
+
+<div class="mangaShow-floatBtn" id="mangaShowFloatBtn">
+    <!-- Flecha hacia arriba (SVG) en color negro -->
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" 
+         stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+      <path d="M18 15l-6-6-6 6"></path>
+    </svg>
+  </div>
+
+</section> <!-- bento-section -->
+
+
+<script>
+  // BOTÓN FLOTANTE => SCROLL TOP
+  const floatBtn = document.getElementById('mangaShowFloatBtn');
+      floatBtn.addEventListener('click', () => {
+        // Desplazamiento suave al inicio de la página
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+</script>
+
+
+
+
+
+
+<!-- TITULO -->
+
+<section class="figuras-section">
+  <h2>FIGURAS <br>
+      JUJUTSU KAISEN</h2>
+</section>
+
+
+
+
+
+<!-- SLIDER -->
+
+<div class="slider-container">
+  <div class="slider-track">
+    <!-- 9 IMÁGENES REALES -->
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/1.png" alt="Imagen 1"></div>
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/2.png" alt="Imagen 2"></div>
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/3.png" alt="Imagen 3"></div>
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/4.png" alt="Imagen 4"></div>
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/5.png" alt="Imagen 5"></div>
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/6.png" alt="Imagen 6"></div>
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/7.png" alt="Imagen 7"></div>
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/8.png" alt="Imagen 8"></div>
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/1.png" alt="Imagen 9"></div>
+    
+
+    <!-- CLONES de las 4 primeras imágenes para el efecto infinito -->
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/2.png" alt="Imagen 1 (clon)"></div>
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/3.png" alt="Imagen 2 (clon)"></div>
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/4.png" alt="Imagen 3 (clon)"></div>
+    <div class="slider-item"><img src="./Imagens/Figuras Jujutsu/carrusel2/5.png" alt="Imagen 4 (clon)"></div>
+  </div>
+</div>
+
+<script src="./Scripts/slider.js"></script>
+
+
+
+
+
+
+
+<!-- FIGURAS -->
+
+<section class="figuras-section">
+    
+    <!-- Contenedor para las primeras 12 cards (visibles en desktop y móvil) -->
+    <div class="cards-container">
+      <!-- Card 1 -->
+      <a href="./seccion_megumi.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/1.png" alt="Figura 1">
+        <div class="card-text">
+          <p>Figura: Chibi</p>
+          <p>Personaje: Megumi Fushiguro</p>
+          <p>Precio: 310 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 2 -->
+      <a href="./seccion_yuji.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/2.png" alt="Figura 2">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Yūji Itadori</p>
+          <p>Precio: 310 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 3 -->
+      <a href="./seccion_satoru.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/3.png" alt="Figura 3">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Satoru Gojō</p>
+          <p>Precio: 310 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 4 -->
+      <a href="./seccion_nobara.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/4.png" alt="Figura 4">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Nobara Kugisaki</p>
+          <p>Precio: 310 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 5 -->
+      <a href="./seccion_suguru_1.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/5.png" alt="Figura 5">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Suguru Getō</p>
+          <p>Precio: 310 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 6 -->
+      <a href="./seccion_suguru_2.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/8.png" alt="Figura 6">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Suguru Getō</p>
+          <p>Precio: 310 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 7 -->
+      <a href="./seccion_yuta.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/7.png" alt="Figura 7">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Yūta Okkotsu</p>
+          <p>Precio: 310 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 8 -->
+      <a href="./seccion_kento.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/9.png" alt="Figura 8">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Kento Nanami</p>
+          <p>Precio: 310 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 9 -->
+      <a href="./seccion_toge_1.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/6.png" alt="Figura 9">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Toge Inumaki</p>
+          <p>Precio: 310 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 10 -->
+      <a href="./seccion_toge_2.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/10.png" alt="Figura 10">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Toge Inumaki</p>
+          <p>Precio: 310 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 11 -->
+      <a href="./seccion_maki.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/11.png" alt="Figura 11">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Maki Zen'in</p>
+          <p>Precio: 310 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 12 -->
+      <a href="./seccion_shoko.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/12.png" alt="Figura 12">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Shoko Ieiri</p>
+          <p>Precio: 310 Bs.</p>
+        </div>
+      </a>
+
+      <!-- Card 13 -->
+      <a href="./seccion_s.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/Carrusel/1.png" alt="Figura 13">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Satoru Gojō</p>
+          <p>Precio: 300 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 14 -->
+      <a href="./seccion_y.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/Carrusel/2.png" alt="Figura 14">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Yūji Itadori</p>
+          <p>Precio: 300 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 15 -->
+      <a href="./seccion_m.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/Carrusel/3.png" alt="Figura 15">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Megumi Fushiguro</p>
+          <p>Precio: 300 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 16 -->
+      <a href="./seccion_t.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/Carrusel/4.png" alt="Figura 16">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Toge Inumaki</p>
+          <p>Precio: 300 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 17 -->
+      <a href="./seccion_n.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/Carrusel/5.png" alt="Figura 17">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Nobara Kugisaki</p>
+          <p>Precio: 300 Bs.</p>
+        </div>
+      </a>
+      <!-- Card 18 -->
+      <a href="./seccion_yu.html" class="card">
+        <img src="./Imagens/Figuras Jujutsu/Carrusel/6.png" alt="Figura 18">
+        <div class="card-text">
+          <p>Figura Chibi</p>
+          <p>Personaje: Yūta Okkotsu</p>
+          <p>Precio: 300 Bs.</p>
+        </div>
+      </a>
+
+    </div>
+
+    
+    
+  </section>
+
+
+
+
+
+
+<!-- BOTONES SIGUIENTE VOLVER -->
+
+<section class="navigation1-section">
+  <div class="nav1-container">
+    
+    <!-- Botón y texto a la IZQUIERDA -->
+    <a href="./figuras_kimetsu.html" class="nav1-left">
+      <button class="arrow1-btn left-arrow">
+        <!-- Flecha Izquierda (puedes usar SVG o Unicode) -->
+        <img src="./Imagens/Iconos/i.png" alt="">
+      </button>
+      <span class="nav1-text">Kimetsu no Yaiba</span>
+    </a>
+    <!-- Botón y texto a la DERECHA -->
+    <a href="./figuras_myhero.html" class="nav1-right">
+      <span class="nav1-text">My Hero Academia</span>
+      <button class="arrow1-btn right-arrow">
+        <!-- Flecha Derecha -->
+        <img src="./Imagens/Iconos/d.png" alt="">
+      </button>
+    </a>
+
+  </div>
+</section>
+
+<script src="./Scripts/funcionalidad.js"></script>
+
+
+
+
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="footer-content">
+      <!-- Columna 1: LOGO -->
+    <div class="footer-column logo-column">
+      <!-- Ajusta la ruta con tu imagen real -->
+      <img src="./Imagens/Footer/Logo 11.png" alt="Logo" />
+    </div>
+
+    <!-- Columna 2: UBICACIÓN -->
+    <div class="footer-column location-column">
+      <h3 class="footer-title"><br>Ubicación La Paz - Bolivia</h3>
+      <p class="footer-regular">Av. Mariscal Santa Cruz<br>Edificio Torricentro, local 19</p>
+      
+      <p class="footer-bold">Comunícate con nosotros al:</p>
+      <p class="footer-regular">+591 67124160</p>
+
+      <p class="footer-bold">Envíanos un mensaje a:</p>
+      <p class="footer-regular">velvetroom.bo@gmail.com</p>
+    </div>
+
+    <!-- Columna 3: HORARIO DE ATENCIÓN -->
+    <div class="footer-column schedule-column">
+      <h3 class="footer-title">Horario de atención</h3>
+      <p class="footer-bold">Lunes a viernes:</p>
+      <p class="footer-regular">10:00 - 14:00 <br>16:00 - 20:00</p>
+
+      <p class="footer-bold">Sábados:</p>
+      <p class="footer-regular">09:00 - 13:00</p>
+    </div>
+
+    <!-- Columna 4: SÍGUENOS -->
+    <div class="footer-column social-column">
+      <h3 class="footer-title">¡Síguenos!</h3>
+      <div class="footer-icons">
+        <!-- Ajusta la ruta con tus íconos reales -->
+        <img src="./Imagens/Footer/f1.png" alt="Facebook" />
+        <img src="./Imagens/Footer/w1.png" alt="WhatsApp" />
+        <img src="./Imagens/Footer/t1.png" alt="TikTok" />
+      </div>
+    </div>
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>

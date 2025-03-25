@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+    <link rel="stylesheet" href="./css/pedidos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./Imagens/Favicon/favicon.png">
+</head>
+<body>
+
+    <!-- MENÚ -->
+    <header>
+      <div class="nav-container">
+        <!-- LOGO -->
+        <img src="./Imagens/Menu/logo.png" alt="Logo" class="logo" />
+  
+        <!-- MENÚ PRINCIPAL (solo visible en escritorio) -->
+        <nav class="main-menu">
+          <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./productos.html">Productos</a></li>
+            <li><a href="./nosotros.html">Nosotros</a></li>
+            <li><a href="./eventos.html">Eventos</a></li>
+            <li><a href="./pedidos.html">Pedidos</a></li>
+          </ul>
+        </nav>
+  
+        <!-- ÍCONOS REDES SOCIALES (solo visible en escritorio) -->
+        <div class="social-icons">
+          <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+          <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+          <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+        </div>
+  
+        <!-- MENÚ HAMBURGUESA (solo visible en móvil) -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+  
+    <!-- MENÚ DESPLEGABLE (MÓVIL) -->
+    <div class="dropdown-menu" id="dropdownMenu">
+      <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./productos.html">Productos</a></li>
+        <li><a href="./nosotros.html">Nosotros</a></li>
+        <li><a href="./eventos.html">Eventos</a></li>
+        <li><a href="./pedidos.html">Pedidos</a></li>
+      </ul>
+      <div class="dropdown-social">
+        <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+        <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+        <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+      </div>
+    </div>
+  
+    <script>
+      // Seleccionamos los elementos
+      const hamburger = document.getElementById('hamburger');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+  
+      // Al hacer clic en el ícono de hamburguesa, alternamos la clase "open"
+      hamburger.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('open');
+      });
+
+      // Evento para mostrar/ocultar el menú desplegable en móvil
+      hamburger.addEventListener('click', () => {
+        if (dropdownMenu.style.display === 'flex') {
+          dropdownMenu.style.display = 'none';
+        } else {
+          dropdownMenu.style.display = 'flex';
+        }
+      });
+  
+      // Opcional: si deseas cerrar el menú al cambiar a escritorio automáticamente,
+      // puedes usar un listener de 'resize' para controlar el ancho de la ventana.
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          // Ocultamos el menú desplegable al volver a escritorio
+          dropdownMenu.style.display = 'none';
+        }
+      });
+    </script>
+
+
+
+
+
+
+
+<!-- Migas de pan -->
+<div class="breadcrumbs">
+  <nav>
+      <h3 class="breadcrumb-item"><a href="./index.html">&gt; Inicio</a></h3>
+      <h3 class="breadcrumb-item breadcrumb-active"><a href="">&gt; Pedidos</a></h3>
+  </nav>
+</div>
+
+
+
+
+
+
+    <!-- SECCION WEB FORMULARIO -->
+
+    <section class="section-pedido">
+      <!-- Columna Izquierda -->
+      <div class="pedido-texto">
+        <h2>TU PEDIDO ES <br> NUESTRA PRIORIDAD</h2>
+        <p>
+          ¡Personaliza tu colección anime! Realizamos pedidos especiales de figuras, mangas y mucho más. 
+          ¿Tienes un personaje o serie en mente? ¡Cuéntanos y lo haremos realidad! <br><br>
+
+          Producto agotado? ¡No hay problema! Puedes realizar un pedido y te avisaremos cuando esté disponible. <br><br>
+
+          Solo contáctanos y te ayudaremos a conseguirlo. 
+        </p>
+      </div>
+  
+      <!-- Columna Derecha (Formulario) -->
+      <form class="pedido-form" id="pedidoForm">
+        <!-- Fila con Gmail y Cel -->
+        <div class="form-row">
+          <input type="email" class="form-input input-gmail" placeholder="Gmail" id="gmail" required>
+          <input type="tel" class="form-input input-cel" placeholder="Cel." id="celular" required>
+        </div>
+        <!-- Nombre -->
+        <input type="text" class="form-input input-nombre" placeholder="Nombre" id="nombre" required>
+        <!-- Mensaje -->
+        <textarea class="form-input input-mensaje" placeholder="Mensaje" id="mensaje" required></textarea>
+        <!-- Botón Enviar -->
+        <button type="submit" class="btn-enviar">Enviar</button>
+      </form>
+    </section>
+  
+    <!-- MODAL DE CONFIRMACIÓN -->
+    <div class="modal-overlay" id="modal-confirmacion">
+      <div class="modal-content">
+        <p class="modal-text">¿Desea confirmar el envío de<br> este mensaje?</p>
+        <div class="modal-buttons">
+          <button class="btn-modal" id="btnSi">Si</button>
+          <button class="btn-modal" id="btnNo">No</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- MODAL DE ÉXITO -->
+    <div class="modal-overlay" id="modal-exito">
+      <div class="modal-content">
+        <!-- Ícono X en esquina superior derecha -->
+        <div class="close-icon" id="closeExito">
+          <!-- Ajusta la ruta a tu ícono real (por ejemplo, close.svg) -->
+          <img src="./Imagens/Pedidos/Iconos/X.png" alt="Cerrar">
+        </div>
+        <!-- Ícono Check -->
+        <img src="./Imagens/Pedidos/Iconos/check.png" alt="Éxito" class="exito-icon">
+        <p class="modal-text">Enviado correctamente</p>
+      </div>
+    </div>
+  
+    <script>
+      // Referencias a elementos
+      const pedidoForm = document.getElementById('pedidoForm');
+      const modalConfirm = document.getElementById('modal-confirmacion');
+      const modalExito = document.getElementById('modal-exito');
+  
+      const btnSi = document.getElementById('btnSi');
+      const btnNo = document.getElementById('btnNo');
+      const closeExito = document.getElementById('closeExito');
+  
+      // Mostrar modal de confirmación al hacer submit en el formulario
+      pedidoForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Evitar envío real de formulario
+        // Mostrar modal de confirmación
+        openModal(modalConfirm);
+      });
+  
+      // Botón "Si" => cerrar confirmación y abrir éxito
+      btnSi.addEventListener('click', () => {
+        closeModal(modalConfirm);
+        // Aquí podrías enviar los datos al servidor vía fetch/AJAX
+        // Simulamos envío con un timeout, o abrimos inmediatamente la ventana de éxito
+        openModal(modalExito);
+      });
+  
+      // Botón "No" => cerrar modal de confirmación
+      btnNo.addEventListener('click', () => {
+        closeModal(modalConfirm);
+      });
+  
+      // Cerrar ventana de éxito al pulsar la X
+      closeExito.addEventListener('click', () => {
+        closeModal(modalExito);
+      });
+  
+      // Cerrar modales al hacer clic fuera de la ventana emergente
+      window.addEventListener('click', (event) => {
+        // Si el target es el overlay en sí (y no el contenido interno), cerramos
+        if (event.target === modalConfirm) {
+          closeModal(modalConfirm);
+        }
+        if (event.target === modalExito) {
+          closeModal(modalExito);
+        }
+      });
+  
+      // Funciones para abrir/cerrar modales
+      function openModal(modal) {
+        modal.style.display = 'flex';
+      }
+  
+      function closeModal(modal) {
+        modal.style.display = 'none';
+      }
+    </script>
+
+
+
+<!-- SECCION WEB 2 -->
+
+<section class="info2-section">
+  <!-- TRES RECTÁNGULOS -->
+  <div class="info2-rectangles">
+    <!-- 1er Rectángulo -->
+    <div class="info2-rect">
+      <p class="info2-title">Comunícate con nosotros al:</p>
+      <p class="info2-text">+591 67124160</p>
+    </div>
+    <!-- 2do Rectángulo -->
+    <div class="info2-rect">
+      <p class="info2-title">Envíanos un mensaje a:</p>
+      <p class="info2-text">velvetroom.bo@gmail.com</p>
+    </div>
+    <!-- 3er Rectángulo -->
+    <div class="info2-rect">
+      <p class="info2-title">Nos ubicamos en:</p>
+      <p class="info2-text">Av. Mariscal Santa Cruz</p>
+    </div>
+  </div>
+
+  <!-- MAPA (Contenedor de 1146×500) -->
+  <section class="contenedor-mapa">
+    <iframe 
+        class="mapa"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.555423672801!2d-68.13819882605623!3d-16.49803404067235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f207114d48801%3A0xce59fbdd566c4ea!2sAv.%20Mariscal%20Sta.%20Cruz%2C%20La%20Paz!5e0!3m2!1ses!2sbo!4v1739498102233!5m2!1ses!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>">
+    </iframe>
+  </section>
+
+
+
+
+  <!-- BOTÓN FLOTANTE FIJO (SCROLL TOP) -->
+  <div class="mangaShow-floatBtn" id="mangaShowFloatBtn">
+    <!-- Flecha hacia arriba (SVG) en color negro -->
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" 
+         stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+      <path d="M18 15l-6-6-6 6"></path>
+    </svg>
+  </div>
+</section>
+
+<script>
+  // BOTÓN FLOTANTE => SCROLL TOP
+  const floatBtn = document.getElementById('mangaShowFloatBtn');
+      floatBtn.addEventListener('click', () => {
+        // Desplazamiento suave al inicio de la página
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+</script>
+
+
+
+
+
+<!-- BOTONES SIGUIENTE VOLVER -->
+
+<section class="navigation1-section">
+  <div class="nav1-container">
+    
+    <!-- Botón y texto a la IZQUIERDA -->
+    <a href="./eventos.html" class="nav1-left">
+      <button class="arrow1-btn left-arrow">
+        <!-- Flecha Izquierda (puedes usar SVG o Unicode) -->
+        <img src="./Imagens/Iconos/i.png" alt="">
+      </button>
+      <span class="nav1-text">Eventos</span>
+    </a>
+
+  </div>
+</section>
+
+<script src="./Scripts/funcionalidad.js"></script>
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-content">
+    <!-- Columna 1: LOGO -->
+  <div class="footer-column logo-column">
+    <!-- Ajusta la ruta con tu imagen real -->
+    <img src="./Imagens/Footer/Logo 11.png" alt="Logo" />
+  </div>
+
+  <!-- Columna 2: UBICACIÓN -->
+  <div class="footer-column location-column">
+    <h3 class="footer-title"><br>Ubicación La Paz - Bolivia</h3>
+    <p class="footer-regular">Av. Mariscal Santa Cruz<br>Edificio Torricentro, local 19</p>
+    
+    <p class="footer-bold">Comunícate con nosotros al:</p>
+    <p class="footer-regular">+591 67124160</p>
+
+    <p class="footer-bold">Envíanos un mensaje a:</p>
+    <p class="footer-regular">velvetroom.bo@gmail.com</p>
+  </div>
+
+  <!-- Columna 3: HORARIO DE ATENCIÓN -->
+  <div class="footer-column schedule-column">
+    <h3 class="footer-title">Horario de atención</h3>
+    <p class="footer-bold">Lunes a viernes:</p>
+    <p class="footer-regular">10:00 - 14:00 <br>16:00 - 20:00</p>
+
+    <p class="footer-bold">Sábados:</p>
+    <p class="footer-regular">09:00 - 13:00</p>
+  </div>
+
+  <!-- Columna 4: SÍGUENOS -->
+  <div class="footer-column social-column">
+    <h3 class="footer-title">¡Síguenos!</h3>
+    <div class="footer-icons">
+      <!-- Ajusta la ruta con tus íconos reales -->
+      <img src="./Imagens/Footer/f1.png" alt="Facebook" />
+      <img src="./Imagens/Footer/w1.png" alt="WhatsApp" />
+      <img src="./Imagens/Footer/t1.png" alt="TikTok" />
+    </div>
+  </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

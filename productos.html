@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="./css/productos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./Imagens/Favicon/favicon.png">
+</head>
+<body>
+    
+    <!-- MENÚ -->
+    <header>
+      <div class="nav-container">
+        <!-- LOGO -->
+        <img src="./Imagens/Menu/logo.png" alt="Logo" class="logo" />
+  
+        <!-- MENÚ PRINCIPAL (solo visible en escritorio) -->
+        <nav class="main-menu">
+          <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./productos.html">Productos</a></li>
+            <li><a href="./nosotros.html">Nosotros</a></li>
+            <li><a href="./eventos.html">Eventos</a></li>
+            <li><a href="./pedidos.html">Pedidos</a></li>
+          </ul>
+        </nav>
+  
+        <!-- ÍCONOS REDES SOCIALES (solo visible en escritorio) -->
+        <div class="social-icons">
+          <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+          <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+          <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+        </div>
+  
+        <!-- MENÚ HAMBURGUESA (solo visible en móvil) -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+  
+    <!-- MENÚ DESPLEGABLE (MÓVIL) -->
+    <div class="dropdown-menu" id="dropdownMenu">
+      <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./productos.html">Productos</a></li>
+        <li><a href="./nosotros.html">Nosotros</a></li>
+        <li><a href="./eventos.html">Eventos</a></li>
+        <li><a href="./pedidos.html">Pedidos</a></li>
+      </ul>
+      <div class="dropdown-social">
+        <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+        <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+        <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+      </div>
+    </div>
+  
+    <script>
+      // Seleccionamos los elementos
+      const hamburger = document.getElementById('hamburger');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+  
+      // Al hacer clic en el ícono de hamburguesa, alternamos la clase "open"
+      hamburger.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('open');
+      });
+
+      // Evento para mostrar/ocultar el menú desplegable en móvil
+      hamburger.addEventListener('click', () => {
+        if (dropdownMenu.style.display === 'flex') {
+          dropdownMenu.style.display = 'none';
+        } else {
+          dropdownMenu.style.display = 'flex';
+        }
+      });
+  
+      // Opcional: si deseas cerrar el menú al cambiar a escritorio automáticamente,
+      // puedes usar un listener de 'resize' para controlar el ancho de la ventana.
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          // Ocultamos el menú desplegable al volver a escritorio
+          dropdownMenu.style.display = 'none';
+        }
+      });
+    </script>
+
+
+
+
+
+<!-- Migas de pan -->
+<div class="breadcrumbs">
+  <nav>
+      <h3 class="breadcrumb-item"><a href="./index.html">&gt; Inicio</a></h3>
+      <h3 class="breadcrumb-item breadcrumb-active"><a href="">&gt; Productos</a></h3>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- SECCION WEB 1 -->
+
+<!-- SECCIÓN ESCRITORIO -->
+<section class="desktop-section">
+  <div class="desktop-container">
+    <!-- COLUMNA IZQUIERDA (25%) -->
+    <div class="left-col">
+      
+      <!-- Botón principal: Mangas -->
+      <div class="main-btn mangas-btn">Mangas</div>
+      <!-- Sub-botones (7) -->
+      <div class="sub-btns-group">
+        <a href="./accion.html" class="sub-btn first-sub">Acción</a>
+        <a href="./comedia.html" class="sub-btn">Comedia</a>
+        <a href="./drama.html" class="sub-btn">Drama</a>
+        <a href="./psicologico.html" class="sub-btn">Psicológico</a>
+        <a href="./fantasia.html" class="sub-btn">Fantasía</a>
+        <a href="./romance.html" class="sub-btn">Romance</a>
+        <a href="./terror.html" class="sub-btn last-sub">Terror</a>
+      </div>
+      
+      <!-- Separación de 30px -->
+      <div style="height: 30px;"></div>
+
+      <!-- Botón principal: Figuras -->
+      <div class="main-btn figuras-btn">Figuras</div>
+      <!-- Sub-botones (5) -->
+      <div class="sub-btns-group">
+        <a href="./figuras_kimetsu.html" class="sub-btn first-sub">Kimetsu No Yaiba</a>
+        <a href="./figuras_jujutsu.html" class="sub-btn">Jujutsu Kaisen</a>
+        <a href="./figuras_myhero.html" class="sub-btn">My Hero Academia</a>
+        <a href="./figuras_bungo.html" class="sub-btn">Bungo Stray Dogs</a>
+        <a href="./figuras_sakura.html" class="sub-btn last-sub">Sakura Card Captor</a>
+      </div>
+
+    </div> <!-- Fin .left-col -->
+
+    <!-- COLUMNA DERECHA (75%) -->
+    <div class="right-col">
+      <!-- Título -->
+      <h2>DESCUBRE MÁS FIGURAS DE TUS PERSONAJES FAVORITOS</h2>
+      
+      <!-- Bento/Mosaico de 5 columnas x 4 filas con 5 imágenes -->
+      <div class="bento-grid">
+        <!-- 1) Primera imagen: ocupa 3 col x 2 filas (ej. grid-column: 1 / span 3; grid-row: 1 / span 2) -->
+        <a href="./figuras_myhero.html" class="bento-item item1">
+          <img src="./Imagens/Bento/2.jpg" alt="Figura 1">
+          <div class="bento-hover-text">FIGURAS<br> MY HERO ACADEMIA</div>
+        </a>
+
+        <!-- 2) Segunda imagen: ocupa las últimas 2 columnas y 3 filas de alto (ej. col 4-5, row 1-4) -->
+        <a href="./figuras_kimetsu.html" class="bento-item item2">
+          <img src="./Imagens/Bento/1.jpg" alt="Figura 2">
+          <div class="bento-hover-text">FIGURAS KIMETSU NO YAIBA</div>
+        </a>
+
+        <!-- 3) Tercera imagen: ocupa las 2 primeras columnas y las 2 últimas filas (ej. col 1-3, row 3-5) -->
+        <a href="./figuras_jujutsu.html" class="bento-item item3">
+          <img src="./Imagens/Bento/4.jpg" alt="Figura 3">
+          <div class="bento-hover-text">FIGURAS JUJUTSU KAISEN</div>
+        </a>
+
+        <!-- 4) Cuarta imagen: 3.ª columna del centro y 2 últimas filas -->
+        <a href="./figuras_sakura.html" class="bento-item item4">
+          <img src="./Imagens/Bento/3.webp" alt="Figura 4">
+          <div class="bento-hover-text">FIGURAS SAKURA CARD CAPTOR</div>
+        </a>
+
+        <!-- 5) Quinta imagen: últimas 2 columnas, última fila -->
+        <a href="./figuras_bungo.html" class="bento-item item5">
+          <img src="./Imagens/Bento/5.png" alt="Figura 5">
+          <div class="bento-hover-text">FIGURAS<br>BUNGO STRAY DOGS</div>
+        </a>
+      </div>
+
+    </div> <!-- Fin .right-col -->
+  </div>
+</section>
+<!-- FIN SECCIÓN ESCRITORIO -->
+
+<!-- SECCIÓN MÓVIL -->
+<section class="mobile-section">
+<div class="mobile-container">
+
+<!-- Botón desplegable: Mangas -->
+<div class="dropdown">
+  <button class="dropdown-toggle">
+    <span>Mangas</span>
+    <span class="arrow">
+      <img src="./Imagens/Iconos/aba.png" alt="">
+    </span>
+  </button>
+  <div class="dropdown-content">
+    <a href="./accion.html" class="drop-sub">Acción</a>
+    <a href="./comedia.html" class="drop-sub">Comedia</a>
+    <a href="./drama.html" class="drop-sub">Drama</a>
+    <a href="./psicologico.html" class="drop-sub">Psicológico</a>
+    <a href="./fantasia.html" class="drop-sub">Fantasía</a>
+    <a href="./romance.html" class="drop-sub">Romance</a>
+    <a href="./terror.html" class="drop-sub">Terror</a>
+  </div>
+</div>
+
+<!-- Botón desplegable: Figuras -->
+<div class="dropdown">
+  <button class="dropdown-toggle">
+    <span>Figuras</span>
+    <span class="arrow">
+      <img src="./Imagens/Iconos/aba.png" alt="">
+    </span>
+  </button>
+  <div class="dropdown-content">
+    <a href="./figuras_kimetsu.html" class="drop-sub">Kimetsu No Yaiba</a>
+    <a href="./figuras_jujutsu.html" class="drop-sub">Jujutsu Kaisen</a>
+    <a href=".//figuras_myhero.html" class="drop-sub">My Hero Academia</a>
+    <a href="./figuras_bungo.html" class="drop-sub">Bungo Stray Dogs</a>
+    <a href="./figuras_sakura.html" class="drop-sub">Sakura Card Captor</a>
+  </div>
+</div>
+
+<!-- Título móvil -->
+<h2 class="mobile-title">DESCUBRE MÁS FIGURAS DE TUS PERSONAJES FAVORITOS</h2>
+
+<!-- Bento/Mosaico móvil (2 columnas x 3 filas = 6 celdas para 5 imágenes) -->
+<div class="bento-grid-mobile">
+  
+  <!-- item1-m: ancho completo de la primera fila (2 col) -->
+  <a href="./figuras_myhero.html" class="bento-mobile-item item1-m">
+    <div class="dark-overlay"></div>
+    <img src="./Imagens/Bento/2.jpg" alt="Figura 1">
+    <div class="mobile-text">FIGURAS MY HERO ACADEMIA</div>
+  </a>
+
+  <!-- item2-m: col1, row2 -->
+  <a href="./figuras_kimetsu.html" class="bento-mobile-item item2-m">
+    <div class="dark-overlay"></div>
+    <img src="./Imagens/Bento/1.jpg" alt="Figura 2">
+    <div class="mobile-text">FIGURAS KIMETSU NO YAIBA</div>
+  </a>
+
+  <!-- item3-m: col2, row2 -->
+  <a href="./figuras_jujutsu.html" class="bento-mobile-item item3-m">
+    <div class="dark-overlay"></div>
+    <img src="./Imagens/Bento/4.jpg" alt="Figura 3">
+    <div class="mobile-text">FIGURAS JUJUTSU KAISEN</div>
+  </a>
+
+  <!-- item4-m: col1, row3 -->
+  <a href="./figuras_sakura.html" class="bento-mobile-item item4-m">
+    <div class="dark-overlay"></div>
+    <img src="./Imagens/Bento/3.webp" alt="Figura 4">
+    <div class="mobile-text">FIGURAS SAKURA CARD CAPTOR</div>
+  </a>
+
+  <!-- item5-m: col2, row3 -->
+  <a href="./figuras_bungo.html" class="bento-mobile-item item5-m">
+    <div class="dark-overlay"></div>
+    <img src="./Imagens/Bento/5.png" alt="Figura 5">
+    <div class="mobile-text">FIGURAS BUNGO STRAY DOGS</div>
+  </a>
+
+</div> <!-- Fin .bento-grid-mobile -->
+
+</div>
+</section>
+<!-- FIN SECCIÓN MÓVIL -->
+
+
+
+
+
+
+
+<script src="./Scripts/script productos/funcionalidad.js"></script>
+
+
+
+
+
+
+
+<!-- BENTO -->
+
+<section class="bento1-section">
+
+    <h2>DESCUBRE TUS MANGAS FAVORITOS</h2>
+
+
+
+    <div class="bento1-grid">
+      <!-- ITEM 1 (grande horizontal) -->
+      <a href="./drama.html" class="bento1-item bento1-item1">
+        <img src="./Imagens/Bento/11.png" alt="My Hero Academia">
+        <div class="bento1-overlay">
+          <div class="bento1-overlay-text">MANGAS DE DRAMA</div>
+        </div>
+      </a>
+
+      <!-- ITEM 2 (grande vertical) -->
+      <a href="./fantasia.html" class="bento1-item bento1-item2">
+        <img src="./Imagens/Bento/9.png" alt="Demon Slayer">
+        <div class="bento1-overlay">
+          <div class="bento1-overlay-text">MANGAS DE FANTASÍA</div>
+        </div>
+      </a>
+
+      <!-- ITEM 3 (grande horizontal) -->
+      <a href="./terror.html" class="bento1-item bento1-item3">
+        <img src="./Imagens/Bento/10.png" alt="Cardcaptor Sakura">
+        <div class="bento1-overlay">
+          <div class="bento1-overlay-text">MANGAS DE TERROR</div>
+        </div>
+      </a>
+
+      <!-- ITEM 4 (1×1) -->
+      <a href="./comedia.html" class="bento1-item">
+        <img src="./Imagens/Bento/8.png" alt="Jujutsu Kaisen">
+        <div class="bento1-overlay">
+          <div class="bento1-overlay-text">MANGAS DE COMEDIA</div>
+        </div>
+      </a>
+
+      <!-- ITEM 5 (1×1) -->
+      <a href="./Accion.html" class="bento1-item bento1-item5">
+        <img src="./Imagens/Bento/6.png" alt="Blue Lock">
+        <div class="bento1-overlay">
+          <div class="bento1-overlay-text">MANGAS DE ACCIÓN</div>
+        </div>
+      </a>
+
+      <!-- ITEM 6 (1×1) -->
+      <a href="./psicologico.html" class="bento1-item">
+        <img src="./Imagens/Bento/12.png" alt="Bungo Stray Dogs">
+        <div class="bento1-overlay">
+          <div class="bento1-overlay-text">MANGAS PSICOLÓGICOS </div>
+        </div>
+      </a>
+
+      <!-- ITEM 7 (1×1) -->
+      <a href="./romance.html" class="bento1-item">
+        <img src="./Imagens/Bento/7.png" alt="Solo Leveling">
+        <div class="bento1-overlay">
+          <div class="bento1-overlay-text">MANGAS DE ROMANCE</div>
+        </div>
+      </a>
+    </div> <!-- bento-grid -->
+
+  </section> <!-- bento-section -->
+
+
+
+
+
+
+ <section>
+  <!-- BOTÓN FLOTANTE FIJO (SCROLL TOP) -->
+    <div class="mangaShow-floatBtn" id="mangaShowFloatBtn">
+      <!-- Flecha hacia arriba (SVG) en color negro -->
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" 
+           stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <path d="M18 15l-6-6-6 6"></path>
+      </svg>
+    </div>
+
+  </section>
+
+  
+  <script>
+    // BOTÓN FLOTANTE => SCROLL TOP
+    const floatBtn = document.getElementById('mangaShowFloatBtn');
+        floatBtn.addEventListener('click', () => {
+          // Desplazamiento suave al inicio de la página
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+  </script>
+
+
+
+
+
+
+
+
+
+<section class="carousel-section">
+  <!-- TÍTULO -->
+  <h2>FIGURAS COLECCIONABLES </h2>
+
+  <!-- CONTENEDOR DEL CARRUSEL -->
+  <div class="carousel-container" id="carousel">
+    
+    <!-- Item 1 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Figuras Jujutsu/Carrusel/1.png" alt="Imagen 1">
+      </div>
+      <div class="info">
+        <p>Figura: Chibi</p>
+        <p>Personaje: Satoru Gojō</p>
+        <p>Precio: 300 Bs.</p>
+      </div>
+    </div>
+    
+    <!-- Item 2 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Figuras Jujutsu/Carrusel/2.png" alt="Imagen 2">
+      </div>
+      <div class="info">
+        <p>Figura: Chibi</p>
+        <p>Personaje: Yūji Itadori</p>
+        <p>Precio: 300 Bs.</p>
+      </div>
+    </div>
+    
+    <!-- Item 3 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Figuras Jujutsu/Carrusel/3.png" alt="Imagen 3">
+      </div>
+      <div class="info">
+        <p>Figura: Chibi</p>
+        <p>Personaje: Megumi Fushiguro</p>
+        <p>Precio: 300 Bs.</p>
+      </div>
+    </div>
+    
+    <!-- Item 4 (centrada al cargar) -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Figuras Jujutsu/Carrusel/4.png" alt="Imagen 4">
+      </div>
+      <div class="info">
+        <p>Figura: Chibi</p>
+        <p>Personaje: Toge Inumaki</p>
+        <p>Precio: 300 Bs.</p>
+      </div>
+    </div>
+    
+    <!-- Item 5 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Figuras Jujutsu/Carrusel/5.png" alt="Imagen 5">
+      </div>
+      <div class="info">
+        <p>Figura: Chibi</p>
+        <p>Personaje: Nobara Kugisaki</p>
+        <p>Precio: 300 Bs.</p>
+      </div>
+    </div>
+    
+    <!-- Item 6 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Figuras Jujutsu/Carrusel/6.png" alt="Imagen 6">
+      </div>
+      <div class="info">
+        <p>Figura: Chibi</p>
+        <p>Yūta Okkotsu</p>
+        <p>Precio: 300 Bs.</p>
+      </div>
+    </div>
+    
+  </div> <!-- Fin .carousel-container -->
+
+  <!-- FLECHAS DE NAVEGACIÓN (solo en desktop) -->
+  <div class="carousel-controls">
+    <button class="arrow-btn left-arrow">
+      <img src="./Imagens/Iconos/iz.png" alt="">
+    </button>
+    <button class="arrow-btn right-arrow">
+      <img src="./Imagens/Iconos/de.png" alt="">
+    </button>
+  </div>
+
+  <!-- BOTÓN "VER MÁS SERIES" -->
+  <a href="./figuras_jujutsu.html" class="ver-mas-series-btn">Ver más figuras</a>
+</section>
+
+<script src="./Scripts/script productos/funcionalidad1.js"></script>
+
+
+
+
+
+
+
+<!-- BOTONES SIGUIENTE VOLVER -->
+
+<section class="navigation1-section">
+  <div class="nav1-container">
+    
+    <!-- Botón y texto a la IZQUIERDA -->
+    <a href="./index.html" class="nav1-left">
+      <button class="arrow1-btn left-arrow">
+        <!-- Flecha Izquierda (puedes usar SVG o Unicode) -->
+        <img src="./Imagens/Iconos/i.png" alt="">
+      </button>
+      <span class="nav1-text">Inicio</span>
+    </a>
+    <!-- Botón y texto a la DERECHA -->
+    <a href="./nosotros.html" class="nav1-right">
+      <span class="nav1-text">Nosotros</span>
+      <button class="arrow1-btn right-arrow">
+        <!-- Flecha Derecha -->
+        <img src="./Imagens/Iconos/d.png" alt="">
+      </button>
+    </a>
+
+  </div>
+</section>
+
+<script src="./Scripts/funcionalidad.js"></script>
+
+
+
+
+
+
+
+
+ <!-- FOOTER -->
+
+ <footer>
+  <div class="footer-content">
+    <!-- Columna 1: LOGO -->
+  <div class="footer-column logo-column">
+    <!-- Ajusta la ruta con tu imagen real -->
+    <img src="./Imagens/Footer/Logo 11.png" alt="Logo" />
+  </div>
+
+  <!-- Columna 2: UBICACIÓN -->
+  <div class="footer-column location-column">
+    <h3 class="footer-title"><br>Ubicación La Paz - Bolivia</h3>
+    <p class="footer-regular">Av. Mariscal Sta. Cruz Edificio Torricentro, local 19</p>
+    
+    <p class="footer-bold">Comunícate con nosotros al:</p>
+    <p class="footer-regular">+591 67124160</p>
+
+    <p class="footer-bold">Envíanos un mensaje a:</p>
+    <p class="footer-regular">velvetroom.bo@gmail.com</p>
+  </div>
+
+  <!-- Columna 3: HORARIO DE ATENCIÓN -->
+  <div class="footer-column schedule-column">
+    <h3 class="footer-title">Horario de atención</h3>
+    <p class="footer-bold">Lunes a viernes:</p>
+    <p class="footer-regular">10:00 - 14:00 16:00 - 20:00</p>
+
+    <p class="footer-bold">Sábados:</p>
+    <p class="footer-regular">09:00 - 13:00</p>
+  </div>
+
+  <!-- Columna 4: SÍGUENOS -->
+  <div class="footer-column social-column">
+    <h3 class="footer-title">¡Síguenos!</h3>
+    <div class="footer-icons">
+      <!-- Ajusta la ruta con tus íconos reales -->
+      <img src="./Imagens/Footer/f1.png" alt="Facebook" />
+      <img src="./Imagens/Footer/w1.png" alt="WhatsApp" />
+      <img src="./Imagens/Footer/t1.png" alt="TikTok" />
+    </div>
+  </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

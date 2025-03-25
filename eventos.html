@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="./css/eventos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./Imagens/Favicon/favicon.png">
+</head>
+<body>
+    
+    <!-- MENÚ -->
+    <header>
+      <div class="nav-container">
+        <!-- LOGO -->
+        <img src="./Imagens/Menu/logo.png" alt="Logo" class="logo" />
+  
+        <!-- MENÚ PRINCIPAL (solo visible en escritorio) -->
+        <nav class="main-menu">
+          <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./productos.html">Productos</a></li>
+            <li><a href="./nosotros.html">Nosotros</a></li>
+            <li><a href="./eventos.html">Eventos</a></li>
+            <li><a href="./pedidos.html">Pedidos</a></li>
+          </ul>
+        </nav>
+  
+        <!-- ÍCONOS REDES SOCIALES (solo visible en escritorio) -->
+        <div class="social-icons">
+          <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+          <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+          <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+        </div>
+  
+        <!-- MENÚ HAMBURGUESA (solo visible en móvil) -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+  
+    <!-- MENÚ DESPLEGABLE (MÓVIL) -->
+    <div class="dropdown-menu" id="dropdownMenu">
+      <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./productos.html">Productos</a></li>
+        <li><a href="./nosotros.html">Nosotros</a></li>
+        <li><a href="./eventos.html">Eventos</a></li>
+        <li><a href="./pedidos.html">Pedidos</a></li>
+      </ul>
+      <div class="dropdown-social">
+        <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+        <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+        <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+      </div>
+    </div>
+  
+    <script>
+      // Seleccionamos los elementos
+      const hamburger = document.getElementById('hamburger');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+  
+      // Al hacer clic en el ícono de hamburguesa, alternamos la clase "open"
+      hamburger.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('open');
+      });
+
+      // Evento para mostrar/ocultar el menú desplegable en móvil
+      hamburger.addEventListener('click', () => {
+        if (dropdownMenu.style.display === 'flex') {
+          dropdownMenu.style.display = 'none';
+        } else {
+          dropdownMenu.style.display = 'flex';
+        }
+      });
+  
+      // Opcional: si deseas cerrar el menú al cambiar a escritorio automáticamente,
+      // puedes usar un listener de 'resize' para controlar el ancho de la ventana.
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          // Ocultamos el menú desplegable al volver a escritorio
+          dropdownMenu.style.display = 'none';
+        }
+      });
+    </script>
+
+
+
+
+
+
+<!-- Migas de pan -->
+<div class="breadcrumbs">
+  <nav>
+    <h3 class="breadcrumb-item"><a href="./index.html">&gt; Inicio</a></h3>
+      <h3 class="breadcrumb-item breadcrumb-active"><a href="">&gt; Eventos</a></h3>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+<!-- SECCION IMAGEN FONDO -->
+
+<section class="evs-section">
+    <!-- Overlay negro al 50% -->
+    <div class="evs-overlay"></div>
+
+    <!-- Contenedor del texto -->
+    <div class="evs-content">
+      <h2 class="evs-title">¡EVENTOS PARA TODOS LOS AMANTES DEL <br>ANIME!</h2>
+    </div>
+
+
+
+
+    <!-- BOTÓN FLOTANTE FIJO (SCROLL TOP) -->
+    <div class="mangaShow-floatBtn" id="mangaShowFloatBtn">
+      <!-- Flecha hacia arriba (SVG) en color negro -->
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" 
+           stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <path d="M18 15l-6-6-6 6"></path>
+      </svg>
+    </div>
+</section>
+
+
+<script>
+  // BOTÓN FLOTANTE => SCROLL TOP
+  const floatBtn = document.getElementById('mangaShowFloatBtn');
+      floatBtn.addEventListener('click', () => {
+        // Desplazamiento suave al inicio de la página
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+</script>
+
+
+
+
+
+<!-- SECCION WEB 2 CARRUSEL -->
+
+<section class="section-wrapper">
+  <!-- Imagen de fondo a la izquierda (tamaño escritorio: 275x475) -->
+  <img 
+    src="./Imagens/Eventos/Carrusel/Group.png" 
+    alt="Imagen de fondo" 
+    class="bg-image" 
+  />
+
+  <!-- Contenedor principal que estará "sobre" la imagen de fondo -->
+  <div class="content-wrapper">
+    <!-- Texto a la izquierda, sobre la imagen de fondo -->
+    <div class="text-container">
+      <h2>EVENTOS DONDE CELEBRAMOS<br>NUESTRA PASIÓN POR EL ANIME</h2>
+    </div>
+
+    <!-- Carrusel a la derecha -->
+    <div class="carousel-container">
+      <div class="carousel">
+        <!-- Slide 1 -->
+        <div class="carousel-slide active">
+          <img src="./Imagens/Eventos/Carrusel/1.png" alt="Imagen 1" />
+          <div class="overlay">
+            <p>Eventos Anime Bolivia 2023</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <img src="./Imagens/Eventos/Carrusel/2.png" alt="Imagen 2" />
+          <div class="overlay">
+            <p>Jakhuri Fest, en el campo ferial Chuquiago Marka!!</p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <img src="./Imagens/Eventos/Carrusel/3.png" alt="Imagen 3" />
+          <div class="overlay">
+            <p>4ta Otaku Feria de Garage</p>
+          </div>
+        </div>
+
+        <!-- Botones de navegación -->
+        <button class="carousel-btn prev-btn">&#10094;</button>
+        <button class="carousel-btn next-btn">&#10095;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Archivo JS para la funcionalidad del carrusel -->
+<script src="./Scripts/script eventos/script.js"></script>
+
+
+
+
+
+
+
+<!-- SECCION WEB 3 CARDS -->
+
+<section class="cards-section">
+  <!-- TÍTULO PRINCIPAL -->
+  <h2 class="cards-heading">UN FIN DE SEMANA LLENO DE<br>ANIME Y MANGAS</h2>
+
+  <!-- CONTENEDOR DE LAS 4 CARDS -->
+  <div class="cards-container">
+
+    <!-- CARD 1 -->
+    <div class="cards-item">
+      <div class="cards-image">
+        <img src="./Imagens/Eventos/Cards/1.png" alt="Card 1">
+      </div>
+      <div class="cards-content">
+        <h3 class="cards-title">Chantamanu Proyecciones</h3>
+        <p class="cards-paragraph">
+          Exposición de stand, concurso, juegos, premios y además de concursos de cosplay.
+        </p>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="cards-item">
+      <div class="cards-image">
+        <img src="./Imagens/Eventos/Cards/2.png" alt="Card 2">
+      </div>
+      <div class="cards-content">
+        <h3 class="cards-title">Feria Cultural Wariato</h3>
+        <p class="cards-paragraph">
+          Variedad de stands formarón parte de la feria, se pudo adquirir material anime, kpop, geek, belleza, manualidades, y mucho más!
+        </p>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="cards-item">
+      <div class="cards-image">
+        <img src="./Imagens/Eventos/Cards/3.png" alt="Card 3">
+      </div>
+      <div class="cards-content">
+        <h3 class="cards-title">Gran Festival de los Inmortales</h3>
+        <p class="cards-paragraph">
+          Se pudo apreciar una alfombra roja de cosplay anime, medieval y gamer. stands de venta anime, k-pop !la entrada fue totalmente gratis!
+        </p>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="cards-item">
+      <div class="cards-image">
+        <img src="./Imagens/Eventos/Cards/4.png" alt="Card 4">
+      </div>
+      <div class="cards-content">
+        <h3 class="cards-title">Haru Matsuri</h3>
+        <p class="cards-paragraph">
+          Se dio inicio a la primavera con un festival tradicional de 3 días de distintas temáticas.
+        </p>
+      </div>
+    </div>
+
+  </div> <!-- cards-container -->
+</section> <!-- cards-section -->
+
+
+
+
+
+
+
+<!-- BOTONES SIGUIENTE VOLVER -->
+
+<section class="navigation1-section">
+  <div class="nav1-container">
+    
+    <!-- Botón y texto a la IZQUIERDA -->
+    <a href="./nosotros.html" class="nav1-left">
+      <button class="arrow1-btn left-arrow">
+        <!-- Flecha Izquierda (puedes usar SVG o Unicode) -->
+        <img src="./Imagens/Iconos/i.png" alt="">
+      </button>
+      <span class="nav1-text">Nosotros</span>
+    </a>
+    <!-- Botón y texto a la DERECHA -->
+    <a href="./pedidos.html" class="nav1-right">
+      <span class="nav1-text">Pedidos</span>
+      <button class="arrow1-btn right-arrow">
+        <!-- Flecha Derecha -->
+        <img src="./Imagens/Iconos/d.png" alt="">
+      </button>
+    </a>
+
+  </div>
+</section>
+
+<script src="./Scripts/funcionalidad.js"></script>
+
+
+
+
+
+
+<!-- FOOTER -->
+
+  <footer>
+    <div class="footer-content">
+      <!-- Columna 1: LOGO -->
+    <div class="footer-column logo-column">
+      <!-- Ajusta la ruta con tu imagen real -->
+      <img src="./Imagens/Footer/Logo 11.png" alt="Logo" />
+    </div>
+
+    <!-- Columna 2: UBICACIÓN -->
+    <div class="footer-column location-column">
+      <h3 class="footer-title"><br>Ubicación La Paz - Bolivia</h3>
+      <p class="footer-regular">Av. Mariscal Santa Cruz<br>Edificio Torricentro, local 19</p>
+      
+      <p class="footer-bold">Comunícate con nosotros al:</p>
+      <p class="footer-regular">+591 67124160</p>
+
+      <p class="footer-bold">Envíanos un mensaje a:</p>
+      <p class="footer-regular">velvetroom.bo@gmail.com</p>
+    </div>
+
+    <!-- Columna 3: HORARIO DE ATENCIÓN -->
+    <div class="footer-column schedule-column">
+      <h3 class="footer-title">Horario de atención</h3>
+      <p class="footer-bold">Lunes a viernes:</p>
+      <p class="footer-regular">10:00 - 14:00 <br>16:00 - 20:00</p>
+
+      <p class="footer-bold">Sábados:</p>
+      <p class="footer-regular">09:00 - 13:00</p>
+    </div>
+
+    <!-- Columna 4: SÍGUENOS -->
+    <div class="footer-column social-column">
+      <h3 class="footer-title">¡Síguenos!</h3>
+      <div class="footer-icons">
+        <!-- Ajusta la ruta con tus íconos reales -->
+        <img src="./Imagens/Footer/f1.png" alt="Facebook" />
+        <img src="./Imagens/Footer/w1.png" alt="WhatsApp" />
+        <img src="./Imagens/Footer/t1.png" alt="TikTok" />
+      </div>
+    </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>

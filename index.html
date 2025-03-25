@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="./css/inicio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./Imagens/Favicon/favicon.png">
+<body>
+    
+     <!-- MENÚ -->
+     <header>
+        <div class="nav-container">
+          <!-- LOGO -->
+          <img src="./Imagens/Menu/logo.png" alt="Logo" class="logo" />
+    
+          <!-- MENÚ PRINCIPAL (solo visible en escritorio) -->
+          <nav class="main-menu">
+            <ul>
+              <li><a href="./index.html">Inicio</a></li>
+              <li><a href="./productos.html">Productos</a></li>
+              <li><a href="./nosotros.html">Nosotros</a></li>
+              <li><a href="./eventos.html">Eventos</a></li>
+              <li><a href="./pedidos.html">Pedidos</a></li>
+            </ul>
+          </nav>
+    
+          <!-- ÍCONOS REDES SOCIALES (solo visible en escritorio) -->
+          <div class="social-icons">
+            <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+            <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+            <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+          </div>
+    
+          <!-- MENÚ HAMBURGUESA (solo visible en móvil) -->
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </header>
+    
+      <!-- MENÚ DESPLEGABLE (MÓVIL) -->
+      <div class="dropdown-menu" id="dropdownMenu">
+        <ul>
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./productos.html">Productos</a></li>
+          <li><a href="./nosotros.html">Nosotros</a></li>
+          <li><a href="./eventos.html">Eventos</a></li>
+          <li><a href="./pedidos.html">Pedidos</a></li>
+        </ul>
+        <div class="dropdown-social">
+          <a href="#"><img src="./Imagens/Menu/f.png" alt="Facebook"></a>
+          <a href="#"><img src="./Imagens/Menu/w.png" alt="WhatsApp"></a>
+          <a href="#"><img src="./Imagens/Menu/t.png" alt="TikTok"></a>
+        </div>
+      </div>
+    
+      <script>
+        // Seleccionamos los elementos
+        const hamburger = document.getElementById('hamburger');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+    
+        // Al hacer clic en el ícono de hamburguesa, alternamos la clase "open"
+        hamburger.addEventListener('click', () => {
+          dropdownMenu.classList.toggle('open');
+        });
+
+        // Evento para mostrar/ocultar el menú desplegable en móvil
+        hamburger.addEventListener('click', () => {
+          if (dropdownMenu.style.display === 'flex') {
+            dropdownMenu.style.display = 'none';
+          } else {
+            dropdownMenu.style.display = 'flex';
+          }
+        });
+    
+        // Opcional: si deseas cerrar el menú al cambiar a escritorio automáticamente,
+        // puedes usar un listener de 'resize' para controlar el ancho de la ventana.
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 768) {
+            // Ocultamos el menú desplegable al volver a escritorio
+            dropdownMenu.style.display = 'none';
+          }
+        });
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- SECCION CARRUSEL -->
+
+    <section class="mangaShow-section">
+        <!-- Slides contenedor -->
+        <div class="mangaShow-slides" id="mangaShowSlides">
+          <!-- Slide 1 -->
+          <div class="mangaShow-slide">
+            <img src="./Imagens/Inicio/Carrusel/1.png" alt="Slide 1">
+          </div>
+          <!-- Slide 2 -->
+          <div class="mangaShow-slide">
+            <img src="./Imagens/Inicio/Carrusel/2.png" alt="Slide 2">
+          </div>
+          <!-- Slide 3 -->
+          <div class="mangaShow-slide">
+            <img src="./Imagens/Inicio/Carrusel/3.png" alt="Slide 3">
+          </div>
+        </div>
+    
+        <!-- Overlay 60% -->
+        <div class="mangaShow-overlay"></div>
+    
+        <!-- Indicadores (orbes) -->
+        <div class="mangaShow-indicators" id="mangaShowIndicators">
+          <div class="mangaShow-indicator" data-index="0"></div>
+          <div class="mangaShow-indicator" data-index="1"></div>
+          <div class="mangaShow-indicator" data-index="2"></div>
+        </div>
+    
+        <!-- Botones inferiores -->
+        <a href="./productos.html" class="mangaShow-buttons">
+          <button class="mangaShow-btn">Mangas</button>
+          <button class="mangaShow-btn">Figuras</button>
+        </a>
+      </section>
+    
+      <!-- BOTÓN FLOTANTE FIJO (SCROLL TOP) -->
+      <div class="mangaShow-floatBtn" id="mangaShowFloatBtn">
+        <!-- Flecha hacia arriba (SVG) en color negro -->
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" 
+             stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M18 15l-6-6-6 6"></path>
+        </svg>
+      </div>
+    
+      <script>
+        // Variables del carrusel
+        const slidesContainer = document.getElementById('mangaShowSlides');
+        const indicators = document.querySelectorAll('.mangaShow-indicator');
+        let currentIndex = 0;
+        const totalSlides = 3;
+    
+        // Función para mostrar la diapositiva actual
+        function showSlide(index) {
+          if (index < 0) index = totalSlides - 1;
+          if (index >= totalSlides) index = 0;
+          currentIndex = index;
+          slidesContainer.style.transform = `translateX(-${100 * index}%)`;
+          updateIndicators();
+        }
+    
+        // Actualiza opacidad de los orbes
+        function updateIndicators() {
+          indicators.forEach((ind, i) => {
+            ind.style.opacity = i === currentIndex ? '1.0' : '0.3';
+          });
+        }
+    
+        // Rotación automática cada 4 segundos
+        let autoPlay = setInterval(() => {
+          showSlide(currentIndex + 1);
+        }, 4000);
+    
+        // Click en orbes => cambiar de slide
+        indicators.forEach((ind) => {
+          ind.addEventListener('click', () => {
+            clearInterval(autoPlay); // Detenemos auto-rotación
+            showSlide(Number(ind.dataset.index));
+          });
+        });
+    
+        // Inicializar en la primera slide
+        showSlide(0);
+
+
+
+        
+        
+    
+        // BOTÓN FLOTANTE => SCROLL TOP
+        const floatBtn = document.getElementById('mangaShowFloatBtn');
+        floatBtn.addEventListener('click', () => {
+          // Desplazamiento suave al inicio de la página
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      </script>
+
+
+
+
+
+
+
+     <!-- CARRUSEL LETRAS 2 -->
+
+     <div class="destinyTicker-container">
+        <div class="destinyTicker-track">
+          <!-- Repite la frase para lograr efecto continuo -->
+          VELVET ROOM BOLIVIA &nbsp; VELVET ROOM BOLIVIA &nbsp; VELVET ROOM BOLIVIA &nbsp; 
+          VELVET ROOM BOLIVIA &nbsp; VELVET ROOM BOLIVIA &nbsp; VELVET ROOM BOLIVIA &nbsp; 
+          VELVET ROOM BOLIVIA &nbsp; VELVET ROOM BOLIVIA &nbsp; VELVET ROOM BOLIVIA &nbsp; 
+          <!-- Puedes repetir más veces si deseas mayor continuidad -->
+        </div>
+      </div>
+
+
+
+
+
+
+    <!-- SECCION WEB 1 -->
+
+
+      <!-- SECCIÓN PRINCIPAL (IMAGEN + TEXTO) -->
+      <section class="destinyContent-section">
+        <!-- COLUMNA IZQUIERDA: IMAGEN -->
+        <div class="destinyContent-left">
+          <img 
+            src="./Imagens/Inicio/Contenido/logo.png" alt="Velvet Room Logo" class="destinyContent-img"/>
+        </div>
+    
+        <!-- COLUMNA DERECHA: TÍTULO, PÁRRAFO, BOTÓN -->
+        <div class="destinyContent-right">
+          <h2 class="destinyContent-title">LA LLAMADA DEL<br> DESTINO</h2>
+          <p class="destinyContent-paragraph">
+            Velvet Room es el destino ideal para los apasionados del anime y la cultura japonesa en Bolivia. 
+            Nos dedicamos a ofrecer una experiencia única y completa que abarca desde la venta de productos 
+            originales y de alta calidad hasta la creación de un espacio de encuentro y comunidad para los fanáticos.
+          </p>
+
+          <a href="./Nosotros.html">
+            <button class="destinyContent-btn">Ver más</button>
+          </a>
+        </div>
+      </section>
+
+
+
+
+
+  <!-- SECCIÓN DEL CARRUSEL ACCION -->
+
+<!-- SECCIÓN 1 -->
+<section class="carousel-section">
+  <!-- TÍTULO -->
+  <h2>NUESTROS PRODUCTOS<br>MANGAS DE ACCIÓN</h2>
+  <!-- CONTENEDOR DEL CARRUSEL (sin id, se usa clase) -->
+  <div class="carousel-container">
+    <!-- Item 1 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Accion/1.png" alt="Imagen 1">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Acción</p>
+            <p>Manga: Mashle</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 58 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 2 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Accion/2.png" alt="Imagen 2">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Acción</p>
+            <p>Manga: One Punch Man</p>
+            <p>Editorial: Panini</p>
+            <p>Precio: 65 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 3 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Accion/3.png" alt="Imagen 3">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Acción</p>
+            <p>Manga: Solo Leveling</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 150 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 4 (centrada al cargar) -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Accion/4.png" alt="Imagen 4">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Acción</p>
+            <p>Manga: JoJo's</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 80 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 5 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Accion/5.png" alt="Imagen 5">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Acción</p>
+            <p>Manga: Vagabond</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 60 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 6 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Accion/6.png" alt="Imagen 6">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Acción</p>
+            <p>Manga: Jujutsu Kaisen</p>
+            <p>EditoriaL: Panini</p>
+            <p>Precio: 75 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 7 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Accion/7.png" alt="Imagen 7">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Acción</p>
+            <p>Manga: Loser Ranger</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 58 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- FLECHAS DE NAVEGACIÓN (solo en desktop) -->
+  <div class="carousel-controls">
+    <button class="arrow-btn left-arrow">
+      <img src="./Imagens/Iconos/iz.png" alt="">
+    </button>
+    <button class="arrow-btn right-arrow">
+      <img src="./Imagens/Iconos/de.png" alt="">
+    </button>
+  </div>
+  
+  <!-- BOTÓN "VER MÁS SERIES" -->
+  <a href="./accion.html" class="ver-mas-series-btn">Ver más mangas</a>
+</section>
+
+
+
+<!-- SECCIÓN 2 (similar estructura) -->
+<section class="carousel-section">
+  <h2>NUESTROS PRODUCTOS<br>MANGAS DE COMEDIA</h2>
+  <div class="carousel-container">
+    <!-- Item 1 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Comedia/6.png" alt="Imagen 1">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Comedia</p>
+            <p>Manga: Kaguya Sama</p>
+            <p>Editorial: Panini</p>
+            <p>Precio: 65 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 2 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Comedia/5.png" alt="Imagen 2">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Comedia</p>
+            <p>Manga: One Miss Kobayashi</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 65 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 3 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Comedia/1.png" alt="Imagen 3">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Comedia</p>
+            <p>Manga: Konosuba</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 90 Bs.</p>
+          </div>
+           <!-- Nuevo texto "AGOTADO" -->
+           <p class="agotado-text">AGOTADO</p>
+          <a href="./pedidos.html" class="reservar-btn">Hacer pedido</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 4 (centrada al cargar) -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Comedia/2.png" alt="Imagen 4">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Comedia</p>
+            <p>Manga: Dandadan</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 58 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 5 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Comedia/4.png" alt="Imagen 5">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Comedia</p>
+            <p>Manga: Ayakashi Triangle</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 58 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 6 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Comedia/3.png" alt="Imagen 6">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Comedia</p>
+            <p>Manga: Takagi San</p>
+            <p>EditoriaL: Panini</p>
+            <p>Precio: 60 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 7 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Comedia/12.png" alt="Imagen 7">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Comedia</p>
+            <p>Manga: My Dress Up Darling</p>
+            <p>Editorial: Panini</p>
+            <p>Precio: 70 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="carousel-controls">
+    <button class="arrow-btn left-arrow">
+      <img src="./Imagens/Iconos/iz.png" alt="">
+    </button>
+    <button class="arrow-btn right-arrow">
+      <img src="./Imagens/Iconos/de.png" alt="">
+    </button>
+  </div>
+  <a href="./comedia.html" class="ver-mas-series-btn">Ver más mangas</a>
+</section>
+
+
+
+
+
+<!-- SECCIÓN 3 (similar estructura) -->
+<section class="carousel-section">
+  <h2>NUESTROS PRODUCTOS<br>MANGAS PSICOLÓGICOS</h2>
+  <div class="carousel-container">
+    <!-- Item 1 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Psicologicos/3.png" alt="Imagen 1">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Psicológico</p>
+            <p>Manga: Evangelion Crianza Shinji</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 65 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 2 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Psicologicos/5.png" alt="Imagen 2">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Psicológico</p>
+            <p>Manga: Oshi No Ko</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 65 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 3 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Psicologicos/2.png" alt="Imagen 3">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Psicológico</p>
+            <p>Manga: Dorohedoro</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 120 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 4 (centrada al cargar) -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Psicologicos/1.png" alt="Imagen 4">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Psicológico</p>
+            <p>Manga: Monster</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 135 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 5 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Psicologicos/4.png" alt="Imagen 5">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Psicológico</p>
+            <p>Manga: Attack On Titan</p>
+            <p>Editorial: Ovni</p>
+            <p>Precio: 65 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 6 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Psicologicos/6.png" alt="Imagen 6">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Psicológico</p>
+            <p>Manga: Tokyo Revengers</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 58 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Item 7 -->
+    <div class="carousel-item">
+      <div class="image-wrapper">
+        <img src="./Imagens/Psicologicos/7.png" alt="Imagen 7">
+        <div class="gradient"></div>
+        <div class="info-wrapper">
+          <div class="info">
+            <p class="yellow-text">Género: Psicológico</p>
+            <p>Manga: Tatsuki Fujimoto ss</p>
+            <p>Editorial: Ivrea</p>
+            <p>Precio: 58 Bs.</p>
+          </div>
+          <a href="./pedidos.html" class="reservar-btn">Reservar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="carousel-controls">
+    <button class="arrow-btn left-arrow">
+      <img src="./Imagens/Iconos/iz.png" alt="">
+    </button>
+    <button class="arrow-btn right-arrow">
+      <img src="./Imagens/Iconos/de.png" alt="">
+    </button>
+  </div>
+  <a href="./psicologico.html" class="ver-mas-series-btn">Ver más mangas</a>
+</section>
+
+
+<!-- Script principal del carrusel -->
+<script src="./Scripts/scripts inicio/funcionalidad.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- SECCION WEB 6 -->
+
+  <section class="collect-section">
+    <h2>¡COLECCIONALOS TODOS!</h2>
+    
+    <div class="grid-collect">
+      <!-- Tarjeta 1 -->
+      <a href="./figuras_kimetsu.html" class="card">
+        <div class="inner">
+          <img src="./Imagens/Inicio/Contenido/Coleccionalos/1.png" alt="">
+          <span class="card-text">KIMETSU NO YAIBA</span>
+        </div>
+      </a>
+      
+      <!-- Tarjeta 2 -->
+      <a href="./figuras_jujutsu.html" class="card">
+        <div class="inner">
+            <img src="./Imagens/Inicio/Contenido/Coleccionalos/2.png" alt="">
+          <span class="card-text">JUJUTSU<br> KAISEN</span>
+        </div>
+      </a>
+
+      <!-- Tarjeta 3 -->
+      <a href="./figuras_myhero.html" class="card">
+        <div class="inner">
+            <img src="./Imagens/Inicio/Contenido/Coleccionalos/3.png" alt="">
+          <span class="card-text">MY HERO ACADEMIA</span>
+        </div>
+      </a>
+
+      <!-- Tarjeta 4 -->
+      <a href="/figuras_bungo.html" class="card">
+        <div class="inner">
+            <img src="./Imagens/Inicio/Contenido/Coleccionalos/4.png" alt="">
+          <span class="card-text">BUNGO STRAY DOGS</span>
+        </div>
+      </a>
+
+      <!-- Tarjeta 5 -->
+      <a href="/figuras_sakura.html" class="card">
+        <div class="inner">
+            <img src="./Imagens/Inicio/Contenido/Coleccionalos/5.png" alt="">
+          <span class="card-text">SAKURA CARD CAPTOR</span>
+        </div>
+      </a>
+      <!-- Agrega más tarjetas según necesites -->
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <!-- BOTONES SIGUIENTE VOLVER -->
+
+<section class="navigation1-section">
+  <div class="nav1-container">
+    <!-- Botón y texto a la DERECHA -->
+    <a href="./productos.html" class="nav1-right">
+      <span class="nav1-text">Productos</span>
+      <button class="arrow1-btn right-arrow">
+        <!-- Flecha Derecha -->
+        <img src="./Imagens/Iconos/d.png" alt="">
+      </button>
+    </a>
+
+  </div>
+</section>
+
+<script src="./Scripts/funcionalidad.js"></script>
+
+
+
+
+
+
+      <!-- FOOTER -->
+
+  <footer>
+    <div class="footer-content">
+      <!-- Columna 1: LOGO -->
+    <div class="footer-column logo-column">
+      <!-- Ajusta la ruta con tu imagen real -->
+      <img src="./Imagens/Footer/Logo 11.png" alt="Logo" />
+    </div>
+
+    <!-- Columna 2: UBICACIÓN -->
+    <div class="footer-column location-column">
+      <h3 class="footer-title"><br>Ubicación La Paz - Bolivia</h3>
+      <p class="footer-regular">Av. Mariscal Sta. Cruz Edificio Torricentro, local 19</p>
+      
+      <p class="footer-bold">Comunícate con nosotros al:</p>
+      <p class="footer-regular">+591 67124160</p>
+
+      <p class="footer-bold">Envíanos un mensaje a:</p>
+      <p class="footer-regular">velvetroom.bo@gmail.com</p>
+    </div>
+
+    <!-- Columna 3: HORARIO DE ATENCIÓN -->
+    <div class="footer-column schedule-column">
+      <h3 class="footer-title">Horario de atención</h3>
+      <p class="footer-bold">Lunes a viernes:</p>
+      <p class="footer-regular">10:00 - 14:00 16:00 - 20:00</p>
+
+      <p class="footer-bold">Sábados:</p>
+      <p class="footer-regular">09:00 - 13:00</p>
+    </div>
+
+    <!-- Columna 4: SÍGUENOS -->
+    <div class="footer-column social-column">
+      <h3 class="footer-title">¡Síguenos!</h3>
+      <div class="footer-icons">
+        <!-- Ajusta la ruta con tus íconos reales -->
+        <img src="./Imagens/Footer/f1.png" alt="Facebook" />
+        <img src="./Imagens/Footer/w1.png" alt="WhatsApp" />
+        <img src="./Imagens/Footer/t1.png" alt="TikTok" />
+      </div>
+    </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>
